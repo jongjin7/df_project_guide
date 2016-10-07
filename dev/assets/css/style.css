@@ -1,0 +1,8 @@
+/* 첫번째 CSS */
+.css{text-align: center; color:red;}/*첫번째 스타일을 제거하라*/
+.css2{text-align: left; box:flex; border-radius: 1px;}
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td{color:red }
+/* end Css */
+a{ }

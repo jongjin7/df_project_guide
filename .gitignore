@@ -3,6 +3,7 @@
 *.zip
 .idea
 .sass-cache/
+/build/
 /node_modules/
 TODO
 test.html

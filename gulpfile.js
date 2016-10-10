@@ -39,16 +39,18 @@ gulp.task('clean', function (done) {
 //html include
 gulp.task('include',function() {
 
-    gulp.src([dirs.devSrc + '/html/**/*.html',
-        '!' + dirs.devSrc + '/html/inc/*'
-    ])
+    gulp.src([
+            dirs.devSrc + '/html/**/*.html',
+            '!' + dirs.devSrc + '/html/inc/*'
+        ])
         .pipe(plumber(plumberOption)) //빌드 과정에서 오류 발생시 gulp가 죽지않도록 예외처리
-        .pipe(plugins.newer(dirs.buildSrc + '/html')) //수정된것만 빌드하기 위해 다음 단계 진행
+        .pipe(plugins.newer(dirs.buildSrc + '/html/**/*')) //수정된것만 빌드하기 위해 다음 단계 진행
         .pipe(plugins.include({
             hardFail: true,
             includePaths: dirs.devSrc +'/html/inc/'
         }))
-        .pipe(gulp.dest(dirs.buildSrc + '/html'));
+        .pipe(gulp.dest(dirs.buildSrc + '/html'))
+        .pipe(browserSync.reload({stream:true}));
 });
 
 //copy task
@@ -98,12 +100,16 @@ gulp.task('copy:js', function () {
         .pipe(browserSync.reload({stream:true})); //browserSync 로 브라우저에 반영
 });
 
-gulp.task('copy:watch-js', function () {
+gulp.task('copy:watch-js-1', function () {
     return gulp.src([
-            dirs.devSrc + '/assets/js/**/*',
-            '!' + dirs.devSrc + '/assets/js/vendor/**/*'
-        ])
-        .pipe(gulp.dest(dirs.buildSrc +'/assets/js'))
+            dirs.devSrc + '/assets/js/interactive/first/**/*'])
+        .pipe(gulp.dest(dirs.buildSrc +'/assets/js/interactive/first'))
+        .pipe(browserSync.reload({stream:true}));
+});
+gulp.task('copy:watch-js-2', function () {
+    return gulp.src([
+            dirs.devSrc + '/assets/js/interactive/second/**/*'])
+        .pipe(gulp.dest(dirs.buildSrc +'/assets/js/interactive/second'))
         .pipe(browserSync.reload({stream:true}));
 });
 
@@ -191,7 +197,8 @@ gulp.task('optimise-project', [
 
 //파일 변경 감지 테스트
 gulp.task('watch', function () {
-    gulp.watch(dirs.devSrc + '/assets/js/**/*.js', ['copy:watch-js']);
+    gulp.watch(dirs.devSrc + '/assets/js/interactive/first/**/*.js', ['copy:watch-js-1']);
+    gulp.watch(dirs.devSrc + '/assets/js/interactive/second/**/*.js', ['copy:watch-js-2']);
     gulp.watch(dirs.devSrc + '/assets/css/**/*.css', ['copy:watch-css']);
     gulp.watch(dirs.devSrc + '/html/**/*.html', ['include']);
 });

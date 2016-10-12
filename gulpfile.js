@@ -7,6 +7,7 @@ var concat = require('gulp-concat');
 var minifycss = require('gulp-minify-css');
 var minifyhtml = require('gulp-minify-html');
 var sourcemaps  = require('gulp-sourcemaps');
+var autoprefixer = require('gulp-autoprefixer');
 var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync').create();
@@ -27,7 +28,7 @@ var plumberOption = {
 }
 
 // ---------------------------------------------------------------------
-// | Helper tasks                                                      |
+// | Todo tasks                                                      |
 // ---------------------------------------------------------------------
 
 gulp.task('clean', function (done) {
@@ -93,6 +94,13 @@ gulp.task('copy:watch-css', function () {
         .pipe(gulp.dest(dirs.buildSrc +'/assets/css'))
         .pipe(browserSync.reload({stream:true}));
 });
+gulp.task('copy:watch-lte-css', function () {
+    return gulp.src([
+            dirs.devSrc + '/assets/lte_lib/css/**/*'
+        ])
+        .pipe(gulp.dest(dirs.buildSrc +'/assets/lte_lib/css'))
+        .pipe(browserSync.reload({stream:true}));
+});
 
 gulp.task('copy:js', function () {
     return gulp.src([dirs.devSrc + '/assets/js/**/*'])
@@ -113,6 +121,12 @@ gulp.task('copy:watch-js-2', function () {
         .pipe(browserSync.reload({stream:true}));
 });
 
+gulp.task('copy:etc', function () {
+    return gulp.src([
+            dirs.devSrc + '/index.html'])
+        .pipe(gulp.dest(dirs.buildSrc));
+});
+
 //optimize task
 gulp.task('copy:none-compress', function () {
     return gulp.src([
@@ -126,14 +140,14 @@ gulp.task('compress:css', function () {
             dirs.devSrc + '/assets/css/*.css',
             '!' + dirs.devSrc + '/assets/css/ie8le.css'
         ])
-        .pipe(plugins.sourcemaps.init())
-        .pipe(plugins.autoprefixer({
+        .pipe(sourcemaps.init())
+        .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(plugins.concatCss('styles.min.css'))
-        .pipe(plugins.uglifycss())
-        .pipe(plugins.sourcemaps.write('./maps'))
+        .pipe(concat('styles.min.css'))
+        .pipe(minifycss())
+        .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest(dirs.buildSrc +'/assets/css'));
 });
 
@@ -143,11 +157,11 @@ gulp.task('compress:js-interactive', function () {
             '!' + dirs.devSrc + '/assets/js/vendor/**/*',
             '!' + dirs.devSrc + '/assets/js/common/**/*'
         ])
-        .pipe(plugins.sourcemaps.init())
+        .pipe(sourcemaps.init())
         .pipe(plugins.stripDebug())
-        .pipe(plugins.uglify())
-        .pipe(plugins.concat('app.min.js'))
-        .pipe(plugins.sourcemaps.write('./maps'))
+        .pipe(uglify())
+        .pipe(concat('app.min.js'))
+        .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest(dirs.buildSrc +'/assets/js/'));
 });
 
@@ -157,11 +171,11 @@ gulp.task('compress:js-vendor', function () {
             '!' + dirs.devSrc + '/assets/js/vendor/ie8le_fallback/**/*',
             '!' + dirs.devSrc + '/assets/js/vendor/ie9le_fallback/**/*'
         ])
-        .pipe(plugins.sourcemaps.init())
+        .pipe(sourcemaps.init())
         .pipe(plugins.stripDebug())
-        .pipe(plugins.uglify())
-        .pipe(plugins.concat('vendor.min.js'))
-        .pipe(plugins.sourcemaps.write('./maps'))
+        .pipe(uglify())
+        .pipe(concat('vendor.min.js'))
+        .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest(dirs.buildSrc +'/assets/js/'));
 });
 
@@ -169,6 +183,7 @@ gulp.task('compress:js-vendor', function () {
 // only copy build
 gulp.task('copy-project', [
     'include',
+    'copy:etc',
     'copy:css',
     'copy:js',
     'copy:images',
@@ -200,6 +215,7 @@ gulp.task('watch', function () {
     gulp.watch(dirs.devSrc + '/assets/js/interactive/first/**/*.js', ['copy:watch-js-1']);
     gulp.watch(dirs.devSrc + '/assets/js/interactive/second/**/*.js', ['copy:watch-js-2']);
     gulp.watch(dirs.devSrc + '/assets/css/**/*.css', ['copy:watch-css']);
+    gulp.watch(dirs.devSrc + '/assets/lte_lib/css/**/*.css', ['copy:watch-lte-css']);
     gulp.watch(dirs.devSrc + '/html/**/*.html', ['include']);
 });
 

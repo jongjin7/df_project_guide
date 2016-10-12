@@ -2,5 +2,60 @@
  * Copyright 2016 DF
  * content.css
  * last modify: 2016.10.10
+ * CrossBrowsing Chrome, IE11+
 */
 
+/* worksheet */
+.top-settings{display: none;}
+.page-list-wrap{padding:30px;}
+.page-list-wrap ul {margin:0; padding:0;}
+.page-list-wrap li{list-style: none;}
+
+.page-list-wrap li.depth-1{float:left; width:300px; min-height:260px; max-height:260px; margin-right:10px; margin-bottom:30px; overflow: hidden;}
+.page-list-wrap li.depth-1:nth-child(1),
+.page-list-wrap li.depth-1:nth-child(2),
+.page-list-wrap li.depth-1:nth-child(3){margin-top:0}
+.page-list-wrap li.depth-1 > span{
+    display: block;
+    padding: 7px 15px;
+    background:#337ab7;
+    border-color: #367fa9;
+    border-radius: 3px;
+    margin-bottom:5px;
+    font-size:16px; text-align: center; color:#fff;
+}
+.page-list-wrap ul.depth-2wrap{
+
+}
+.page-list-wrap li.depth-2 {
+    margin-bottom:2px;
+}
+.page-list-wrap li.depth-1.wide-column{width:610px; overflow:visible;}
+.page-list-wrap li.depth-1.wide-column ul.depth-2wrap{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    max-height:250px;
+
+     overflow:hidden; overflow-x: auto;
+}
+.page-list-wrap li.depth-1.wide-column li.depth-2{
+    width:300px;
+    margin-right:10px;
+}
+.page-list-wrap li.depth-2 .btn-group > a{width:270px; height:34px; text-align: left;}
+.page-list-wrap li.depth-2 .btn-group > a > span{
+    position:absolute; left:0; top:0;
+    display: inline-block;
+    width:100%;
+    padding:inherit;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis; vertical-align: top;
+}
+.page-list-wrap li.depth-2 .btn-group > a:hover > span{
+    background-color: #e7e7e7;
+    box-shadow: 0 2px 5px #adadad;
+    white-space: normal;
+}
+.page-list-wrap li.depth-2 .btn-group.open > a:hover > span{white-space: nowrap;}
+.page-list-wrap li.depth-2 .btn-group > a + button{width:30px;}
+.list-drmenu.dropdown-menu{width:300px;box-shadow: 0 2px 5px #adadad;}

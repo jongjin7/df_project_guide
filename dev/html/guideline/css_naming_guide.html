@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Naming Guide | DF Guide</title>
+  #=include common_head.html
+</head>
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <header class="main-header">
+    #=include header.html
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+    #=include navigation.html
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        CSS Naming Guide
+        <small>CSS Naming Guide</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Your Page Content Here -->
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Bordered Table</h3>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <table class="table table-bordered">
+            <tr>
+              <th style="width:50px">순서</th>
+              <th style="width:80px">의미</th>
+              <th>대표되는 속성</th>
+            </tr>
+            <tr>
+              <td>1.</td>
+              <td>레이아웃</td>
+              <td>display, visibility, overflow, float, clear, position, top, right, bottom ,left, z-index</td>
+            </tr>
+            <tr>
+              <td>2.</td>
+              <td>Box</td>
+              <td>width, height, margin, padding, border, box-sizing</td>
+            </tr>
+            <!-- 주석내용 -->
+            <tr>
+              <td>3.</td>
+              <td>배경</td>
+              <td>background</td>
+            </tr>
+            <!-- // -->
+            <tr>
+              <td>4.</td>
+              <td>폰트</td>
+              <td>font, color, letter-spacing, text-algin, text-decoration, text-indent, vertical-algin, white-space</td>
+            </tr>
+            <tr>
+              <td>5.</td>
+              <td>기타</td>
+              <td>위에 언급되지 않는 나머지 속성 정의</td>
+            </tr>
+          </table>
+
+          <ul class="msg-holder">
+            <li class="talign-r">[속성 선언 순서 기준:1. 레이아웃, 2:BOX, 3. 배경, 4.폰트, 5.기타]</li>
+            <li>
+              밴더속성과 핵속성은 해당 속성 뒤에 선언한다
+              <code class="code">
+                .btn{border:1px solid #f60<span class="color-red">; *border:2px solid #f60;</span>
+                border-radius:2px<span class="color-red">; -webkit-border-radius:2px</span>}
+              </code>
+            </li>
+
+          </ul>
+        </div>
+        <!-- /.box-body -->
+
+      </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <footer class="main-footer">
+    #=include footer.html
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    #=include control_sidebar.html
+  </aside><!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+       immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+
+</div><!-- ./wrapper -->
+
+#=include common_js.html
+</body>
+</html>

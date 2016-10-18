@@ -50,14 +50,11 @@
                 <div class="box-header with-border">
                   <i class="fa fa-text-width"></i>
 
-                  <h3 class="box-title">Notice List</h3>
+                  <h3 class="box-title">작업 공지</h3>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
                   <ul>
-                    <li>Lorem ipsum dolor sit amet</li>
-                    <li>Consectetur adipiscing elit</li>
-                    <li>Integer molestie lorem at massa</li>
                     <li>Facilisis in pretium nisl aliquet</li>
                     <li>Nulla volutpat aliquam velit
                       <ul>
@@ -67,8 +64,6 @@
                         <li>Ac tristique libero volutpat at</li>
                       </ul>
                     </li>
-                    <li>Faucibus porta lacus fringilla vel</li>
-                    <li>Aenean sit amet erat nunc</li>
                     <li>Eget porttitor lorem</li>
                   </ul>
                 </div>
@@ -82,7 +77,7 @@
             <div class="col-md-4">
               <div class="box box-solid">
                 <div class="box-header with-border">
-                  <h3 class="box-title">메인 카테고리</h3>
+                  <h3 class="box-title">카테고리</h3>
                 </div>
                 <div class="box-body">
                   <div class="form-group">
@@ -101,6 +96,9 @@
                     </p>
 
                   </div>
+                </div>
+                <div class="box-footer text-center">
+                  <a href="#set-category-modal" class="btn btn-primary" role="button" onclick="showPop(this.hash); return false;">카테고리 관리</a>
                 </div>
 
               </div>
@@ -144,7 +142,7 @@
                     <p class="custom-chk-rdo">
                       <input type="radio" id="ts-rdo-21" name="rdo" value="" />
                       <label for="ts-rdo-21">
-                        <span>옵션1</span>
+                        <span>페이지 전체 확인</span>
                       </label>
                     </p>
 
@@ -176,7 +174,6 @@
         </div>
         <!-- /.box-header -->
         <div class="box-body page-list-wrap">
-
           <!-- List -->
           <ul class="nav nav-pills nav-stacked">
             <!--
@@ -188,11 +185,15 @@
                 <li class="depth-2">
                   <div class="btn-group">
                   <!-- Split button -->
-                    <a href="#" class="btn btn-default"><span>파일명이 길다. Owners 로그인 - 팝업(알림 리스트, 소모품 교환이력, 점검안내, 정비 공임 안내)</span></a>
+                    <a href="#" class="btn btn-default">
+                      <span>파일명이 길다. Owners 로그인 - 팝업(알림 리스트, 소모품 교환이력, 점검안내, 정비 공임 안내)</span>
+                    </a>
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
+                    <!-- 등록 상태 -->
+                    <span class="label label-warning">검수</span>
                   </div>
                 </li>
                 <li class="depth-2">
@@ -213,6 +214,8 @@
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
                     </button>
+
+                    <span class="label label-info">수정</span>
                   </div>
                 </li>
 
@@ -678,6 +681,242 @@
         </div>
         <!-- /.box-body -->
 
+        <div class="box-footer clearfix">
+          <div class="btn-group pull-right">
+            <a href="sheet_insert.html" class="btn btn-default" role="button">일괄 수정</a>
+            <a href="sheet_insert.html" class="btn btn-primary" role="button">새 페이지 등록</a>
+          </div>
+        </div>
+
+        <!-- modal popup : 등록 및 수정 -->
+        <div id="add-modify-modal" class="hide">
+          <div class="modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title">항목 수정하기</h4>
+                </div>
+                <div class="modal-body">
+
+                  <form role="form">
+                    <div class="box-body">
+                      <div class="form-group">
+                        <label for="ins-form-txt-1">페이지명</label>
+                        <input type="text" class="form-control" id="ins-form-txt-1" placeholder="단순한 페이지명" readonly />
+                      </div>
+                      <div class="form-group">
+                        <label for="ins-form-txt-2">페이지 URL</label>
+                        <input type="text" class="form-control" id="ins-form-txt-2" placeholder="/html/sample.html" />
+                      </div>
+                      <div class="form-group">
+                        <h4>작업 진행상태</h4>
+                        <p class="custom-chk-rdo">
+                          <input type="radio" id="ins-rdo-1" name="ins-sta-rdo" value="" disabled />
+                          <label for="ins-rdo-1">
+                            <span>마크업 완료</span>
+                          </label>
+                        </p>
+                        <p class="custom-chk-rdo">
+                          <input type="radio" id="ins-rdo-2" name="ins-sta-rdo" value="" />
+                          <label for="ins-rdo-2">
+                            <span>검수 완료</span>
+                          </label>
+                        </p>
+                        <p class="custom-chk-rdo">
+                          <input type="radio" id="ins-rdo-3" name="ins-sta-rdo" value="" />
+                          <label for="ins-rdo-3">
+                            <span>수정 완료</span>
+                          </label>
+                        </p>
+                      </div>
+                      <!-- 비고 -->
+                      <div class="form-group">
+                        <label for="ins-form-txt-3">비고</label>
+                        <textarea id="ins-form-txt-3" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                      </div>
+
+                    </div>
+                    <!-- /.box-body -->
+                  </form>
+
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">취소</button>
+                  <button type="button" class="btn btn-primary disabled">저장</button>
+                  <!-- viewMode일때만 활성-->
+                  <button type="button" class="btn btn-danger">삭제</button>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
+          <!-- /.modal -->
+        </div>
+
+        <!-- modal popup : 상세 -->
+        <div id="detail-menu-modal" class="hide">
+          <div class="modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title">항목 상세보기</h4>
+                </div>
+                <div class="modal-body">
+
+                  <form role="form">
+                    <div class="box-body">
+                      <table class="table table-bordered">
+                        <tr>
+                          <th style="width:80px">페이지명</th>
+                          <td>회사소개</td>
+                        </tr>
+                        <tr>
+                          <th>URL</th>
+                          <td>www.naver.com</td>
+                        </tr>
+                        <tr>
+                          <th>진행상태</th>
+                          <td>마크업 완료</td>
+                        </tr>
+                        <tr>
+                          <th>작성자</th>
+                          <td>홍길동</td>
+                        </tr>
+                        <tr>
+                          <th>비고</th>
+                          <td>페이지명이 수정됨<br>페이지명이 수정됨<br>페이지명이 수정됨<br>페이지명이 수정</td>
+                        </tr>
+                      </table>
+                    </div>
+                    <!-- /.box-body -->
+                  </form>
+
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">닫기</button>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
+          <!-- /.modal -->
+        </div>
+
+        <!-- category settings -->
+        <div id="set-category-modal" class="hide">
+          <div class="modal set-category">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h1 class="modal-title">메인 카테고리 설정</h1>
+                </div>
+                <div class="modal-body clearfix">
+                  <div class="col-md-5">
+                    <div class="box box-primary cate-tree box-solid">
+                      <div class="box-header with-border">
+                        <h2 class="box-title">전체 카테고리</h2>
+                      </div>
+                      <div class="box-body">
+                        <ul class="nav nav-list">
+                              <li>
+                                <button type="button" class="btn btn-block btn-default tree-toggle nav-header">Front</button>
+                                <ul class="nav nav-list tree">
+                                  <li>
+                                    <span>회사소개</span>
+                                    <button type="button" class="btn btn-box-tool"><i class="fa fa-remove"></i></button>
+                                  </li>
+                                  <li>
+                                    <span>포트폴리오</span>
+                                    <button type="button" class="btn btn-box-tool"><i class="fa fa-remove"></i></button>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><button type="button" class="btn btn-block btn-default tree-toggle nav-header">Admin</button>
+                                <ul class="nav nav-list tree">
+                                  <li>
+                                    <span>Overview</span>
+                                    <button type="button" class="btn btn-box-tool"><i class="fa fa-remove"></i></button>
+                                  </li>
+                                  <li>
+                                    <span>CSS</span>
+                                    <button type="button" class="btn btn-box-tool"><i class="fa fa-remove"></i></button>
+                                  </li>
+                                </ul>
+                              </li>
+                              <li><button type="button" class="btn btn-block btn-default tree-toggle nav-header">Etc</button>
+                                <ul class="nav nav-list tree">
+                                  <li><span>메뉴1</span></li>
+                                  <li><span>메뉴2</span></li>
+                                </ul>
+                              </li>
+                            </ul>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="box box-notshadow category-form">
+                      <div class="box-header with-border">
+                        <h3 class="box-title">메뉴 등록</h3>
+                      </div>
+                      <div class="box-body">
+                        <div class="form-group">
+                          <span class="control-label title">메인 카테고리 선택</span>
+                          <p class="custom-chk-rdo">
+                            <input type="radio" id="scmdl-rdo-1" name="scmdl-sta-rdo" value="" />
+                            <label for="scmdl-rdo-1">
+                              <span>Front</span>
+                            </label>
+                          </p>
+                          <p class="custom-chk-rdo">
+                            <input type="radio" id="scmdl-rdo-2" name="scmdl-sta-rdo" value="" />
+                            <label for="scmdl-rdo-2">
+                              <span>Admin</span>
+                            </label>
+                          </p>
+                          <p class="custom-chk-rdo">
+                            <input type="radio" id="scmdl-rdo-3" name="scmdl-sta-rdo" value="" />
+                            <label for="scmdl-rdo-3">
+                              <span>Etc.</span>
+                            </label>
+                          </p>
+                        </div>
+                        <div class="form-group">
+                          <label for="scmdl-form-txt">등록 메뉴명</label>
+                          <input type="text" class="form-control" id="scmdl-form-txt" placeholder="메뉴명을 입력하세요." />
+                        </div>
+
+                      </div>
+                      <div class="box-footer text-center">
+                        <button type="button" class="btn btn-default">추가</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">닫기</button>
+                  <button type="button" class="btn btn-primary">저장</button>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
+          <!-- /.modal -->
+        </div>
+
       </div>
     </section>
     <!-- /.content -->
@@ -710,21 +949,46 @@
 </ul>
 
 <script>
-  $(function(){
     $('.dropdown-toggle').click(function(e){
       var _this = $(this).closest('.btn-group');
       var _top = $(this).offset().top +10;
       var _left = $(this).offset().left + 30;
       console.log(_this, _top, _left, 'target000')
-      //setTimeout(function(){
-        $('.list-drmenu.dropdown-menu').css({
-          top: _top,
-          left: _left
-        }).toggle();
-     // }, 100)
+      $('.list-drmenu.dropdown-menu').css({
+        top: _top,
+        left: _left
+      }).toggle();
+    });
 
+    $('.list-drmenu.dropdown-menu a').click(function(e){
+      e.preventDefault();
+      var menuIdx = $(this).parent().index();
+      var id;
+      if(menuIdx > 1){
+        return true;
+      } else if(menuIdx == 0){
+        id ='#detail-menu-modal';
+      } else if(menuIdx == 1){
+        id ='#add-modify-modal';
+      }
+      showPop(id);
     })
-  });
+
+    function showPop(id){
+      console.log(id)
+      var currentPop = $(id);
+      currentPop.removeClass('hide');
+      currentPop.find('.close').click(function(e){
+        e.preventDefault();
+        currentPop.addClass('hide');
+      })
+    }
+
+    //카테고리 세팅 모달 팝업 트리 토글
+    $('.tree-toggle').click(function () {
+      $(this).parent().children('ul.tree').toggle(200);
+    });
+  //});
 </script>
 </body>
 </html>

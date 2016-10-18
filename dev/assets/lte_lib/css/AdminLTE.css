@@ -23,7 +23,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: 'Noto Sans Korean','Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -178,8 +178,10 @@ a:focus {
   text-decoration: none;
   color: #72afd2;
 }
-label{font-weight:normal; margin-bottom: 0;}
+
+textarea{resize: none;}
 p{padding: 0; margin:0;}
+.title{font-weight:bold;}
 /* Page Header */
 .page-header {
   margin: 10px 0 20px 0;
@@ -1251,6 +1253,7 @@ p{padding: 0; margin:0;}
  * ---------------
  */
 .form-control {
+  font-size:12px;
   border-radius: 0;
   box-shadow: none;
   border-color: #d2d6de;
@@ -1567,6 +1570,9 @@ p{padding: 0; margin:0;}
 }
 .box.box-default {
   border-top-color: #d2d6de;
+}
+.box.box-notshadow {
+  box-shadow:none;
 }
 .box.collapsed-box .box-body,
 .box.collapsed-box .box-footer {
@@ -2012,6 +2018,9 @@ p{padding: 0; margin:0;}
 .box-input {
   max-width: 200px;
 }
+.modal { display: block;}
+.modal .modal-title{font-size:24px;}
+.modal .box-title{font-size:16px;}
 .modal .panel-body {
   color: #444;
 }
@@ -2699,6 +2708,7 @@ table.text-center th {
  * Component: Label
  * ----------------
  */
+.label{font-weight:normal;}
 .label-default {
   background-color: #d2d6de;
   color: #444;
@@ -4956,19 +4966,23 @@ table.text-center th {
 
 .custom-chk-rdo input + label{display:inherit; padding:1px; padding-left:25px; color:#000; font-size: 0; line-height: 11px;  white-space:nowrap; border:1px solid transparent;} /* word-break:break-all;  */
 .custom-chk-rdo input + label span{display:inherit; margin-left:8px; margin-top:3px; font-size: 14px; vertical-align: top; }
+.custom-chk-rdo input:disabled + label span{color:#aaa;}
+.custom-chk-rdo label{font-weight:normal; margin-bottom: 0;}
 .custom-chk-rdo label:before{
   display:inline-block;
-  width:20px; height:20px;
+  width:16px; height:16px;
   margin-left:-25px;
   background:url('../../../assets/lte_lib/img/blue@2x.png') no-repeat;
-  background-size: auto 20px;
+  background-size: auto 16px;
   vertical-align: top;
   box-sizing: border-box;
   content:'';
 }
 .custom-chk-rdo.multi-line input + label{white-space:normal; }
 .custom-chk-rdo.multi-line input + label span{margin-top:0; line-height: 1.3}
-.custom-chk-rdo input[type="radio"] + label:before{background-position:-100px 0 }
-.custom-chk-rdo input[type="radio"]:checked + label:before{background-position:-140px 0 }
+.custom-chk-rdo input[type="radio"] + label:before{background-position:-79px 0 }
+.custom-chk-rdo input[type="radio"]:checked + label:before{background-position:-112px 0 }
+.custom-chk-rdo input[type="radio"]:disabled + label:before{background-position:-127px 0 }
 .custom-chk-rdo input[type="checkbox"] + label:before{background-position:0 0 }
 .custom-chk-rdo input[type="checkbox"]:checked + label:before{background-position:-40px 0 }
+.custom-chk-rdo input[type="checkbox"]:disabled + label:before{background-position:-60px 0 }

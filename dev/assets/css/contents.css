@@ -6,12 +6,12 @@
 */
 
 /* worksheet */
-.top-settings{display: none;}
+.top-settings{_display: none;}
 .page-list-wrap{padding:30px;}
 .page-list-wrap ul {margin:0; padding:0;}
 .page-list-wrap li{list-style: none;}
 
-.page-list-wrap li.depth-1{float:left; width:300px; min-height:260px; max-height:260px; margin-right:10px; margin-bottom:30px; overflow: hidden;}
+.page-list-wrap li.depth-1{float:left; width:300px; max-height:260px; margin-right:10px; margin-bottom:30px;}
 .page-list-wrap li.depth-1:nth-child(1),
 .page-list-wrap li.depth-1:nth-child(2),
 .page-list-wrap li.depth-1:nth-child(3){margin-top:0}
@@ -31,13 +31,13 @@
     margin-bottom:2px;
 }
 .page-list-wrap li.depth-1.wide-column{width:610px; overflow:visible;}
+.page-list-wrap li.depth-1.wide-column.single-col{width:100%;}
 .page-list-wrap li.depth-1.wide-column ul.depth-2wrap{
     display:flex;
     flex-direction:column;
     flex-wrap:wrap;
     max-height:250px;
-
-     overflow:hidden; overflow-x: auto;
+    overflow:hidden; overflow-x: auto;
 }
 .page-list-wrap li.depth-1.wide-column li.depth-2{
     width:300px;
@@ -58,4 +58,37 @@
 }
 .page-list-wrap li.depth-2 .btn-group.open > a:hover > span{white-space: nowrap;}
 .page-list-wrap li.depth-2 .btn-group > a + button{width:30px;}
+.page-list-wrap li.depth-2 .label{position: absolute; right:31px; bottom:2px;}
 .list-drmenu.dropdown-menu{width:300px;box-shadow: 0 2px 5px #adadad;}
+
+.insert-form-wrap .box-body{padding:0 0 0;}
+.insert-form-wrap .box-body .form-inline{margin:0 30px; padding: 20px 0 10px; border-bottom:1px solid #eee;}
+.insert-form-wrap .box-body .form-inline:last-of-type{border-bottom:none;}
+.insert-form-wrap .box-body .form-inline .form-group{margin-bottom: 10px;}
+.insert-form-wrap .box-body .form-inline .form-control{width:100%;}
+.insert-form-wrap .box-body .title{font-weight: 700;}
+/* 공통 */
+
+/* 네비게이션 트리 : 카테고리 세팅 */
+.set-category .cate-tree{}
+.set-category .cate-tree .nav{margin:10px 0;}
+.set-category .nav{margin-left:0;margin-bottom:20px;list-style:none;}
+.set-category .nav-header{text-transform:uppercase; text-align: left;}
+.set-category .nav-header:hover{color:#000;}
+.set-category li{margin-bottom:3px;}
+.set-category .nav-header + ul li > span{display: inline-block; vertical-align: top;}
+.set-category .nav-header + ul li > .btn{display:none; position: absolute; right:-6px; top:-4px;}
+.set-category .nav-header + ul li:hover > span{color:#3c8dbc;}
+.set-category .nav-header + ul li:hover > .btn{display:block;}
+.set-category .nav-header + ul li > span:hover:after{display:block; position:absolute; left:50%; top: 10%; background:yellow; padding:2px 3px; content:'수정하기'; color:#000; font-size: 9px;}
+.set-category .nav-list{padding-left:15px;padding-right:15px;margin-bottom:0;}
+
+.set-category .control-label{
+    display: block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    vertical-align: middle;
+}
+
+

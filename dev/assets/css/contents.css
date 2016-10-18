@@ -84,6 +84,7 @@
 .set-category .nav-list{padding-left:15px;padding-right:15px;margin-bottom:0;}
 
 .set-category .control-label{
+    /*test*/
     display: block;
     max-width: 100%;
     margin-bottom: 5px;

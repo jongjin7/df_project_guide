@@ -1,0 +1,37 @@
+/* add custom style 2016.10.11 df */
+/* 커스텀 인풋(체크박스, 라디오) */
+.custom-chk-rdo{
+  position: relative;
+  display:inline-block;
+  padding-right: 10px;
+  line-height: 11px;
+  vertical-align: top;
+  overflow: hidden;
+}
+.custom-chk-rdo input[type="radio"],.custom-chk-rdo input[type="checkbox"]{
+  position:absolute;
+  margin-left:-16px; z-index: -1;
+}
+
+.custom-chk-rdo input + label{display:inherit; padding:1px; padding-left:25px; color:#000; font-size: 0; line-height: 11px;  white-space:nowrap; border:1px solid transparent;} /* word-break:break-all;  */
+.custom-chk-rdo input + label span{display:inherit; margin-left:8px; margin-top:3px; font-size: 14px; vertical-align: top; }
+.custom-chk-rdo input:disabled + label span{color:#aaa;}
+.custom-chk-rdo label{font-weight:normal; margin-bottom: 0;}
+.custom-chk-rdo label:before{
+  display:inline-block;
+  width:16px; height:16px;
+  margin-left:-25px;
+  background:url('../img/blue@2x.png') no-repeat;
+  background-size: auto 16px;
+  vertical-align: top;
+  box-sizing: border-box;
+  content:'';
+}
+.custom-chk-rdo.multi-line input + label{white-space:normal; }
+.custom-chk-rdo.multi-line input + label span{margin-top:0; line-height: 1.3}
+.custom-chk-rdo input[type="radio"] + label:before{background-position:-79px 0 }
+.custom-chk-rdo input[type="radio"]:checked + label:before{background-position:-112px 0 }
+.custom-chk-rdo input[type="radio"]:disabled + label:before{background-position:-127px 0 }
+.custom-chk-rdo input[type="checkbox"] + label:before{background-position:0 0 }
+.custom-chk-rdo input[type="checkbox"]:checked + label:before{background-position:-40px 0 }
+.custom-chk-rdo input[type="checkbox"]:disabled + label:before{background-position:-60px 0 }

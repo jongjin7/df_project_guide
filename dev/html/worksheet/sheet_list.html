@@ -4,7 +4,7 @@
   <title>Worksheet | DF Guide</title>
   #=include common_head.html
 </head>
-<body class="hold-transition layout-boxed skin-blue sidebar-mini">
+<body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
   <header class="main-header">
@@ -33,112 +33,44 @@
     <section class="content">
 
       <!-- Your Page Content Here -->
-      <div class="box box-default top-settings">
-        <div class="box-header with-border">
-          <h3 class="box-title">Select2</h3>
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-remove"></i></button>
-          </div>
-        </div>
-        <!-- /.box-header -->
+
+      <div class="box noti-settings">
         <div class="box-body">
-          <div class="row">
-            <!-- notice -->
-            <div class="col-md-8">
-              <div class="box box-solid">
-                <div class="box-header with-border">
-                  <i class="fa fa-text-width"></i>
-
-                  <h3 class="box-title">작업 공지</h3>
-                </div>
-                <!-- /.box-header -->
-                <div class="box-body">
-                  <ul>
-                    <li>Facilisis in pretium nisl aliquet</li>
-                    <li>Nulla volutpat aliquam velit
-                      <ul>
-                        <li>Phasellus iaculis neque</li>
-                        <li>Purus sodales ultricies</li>
-                        <li>Vestibulum laoreet porttitor sem</li>
-                        <li>Ac tristique libero volutpat at</li>
-                      </ul>
-                    </li>
-                    <li>Eget porttitor lorem</li>
-                  </ul>
-                </div>
-                <!-- /.box-body -->
+          <!-- 공지사항 -->
+          <div class="notice-area col-md-8">
+            <div class="box box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title">작업 공지</h3>
               </div>
-              <!-- /.box -->
-            </div>
-            <!-- /.col -->
-
-            <!-- main category -->
-            <div class="col-md-4">
-              <div class="box box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">카테고리</h3>
-                </div>
-                <div class="box-body">
-                  <div class="form-group">
-                    <p class="custom-chk-rdo">
-                      <input type="radio" id="ts-rdo-01" name="rdo" value="" />
-                      <label for="ts-rdo-01">
-                        <span>Front</span>
-                      </label>
-                    </p>
-
-                    <p class="custom-chk-rdo">
-                      <input type="radio" id="ts-rdo-02" name="rdo" value="" />
-                      <label for="ts-rdo-02">
-                        <span>Admin</span>
-                      </label>
-                    </p>
-
-                  </div>
-                </div>
-                <div class="box-footer text-center">
-                  <a href="#set-category-modal" class="btn btn-primary" role="button" onclick="showPop(this.hash); return false;">카테고리 관리</a>
-                </div>
-
+              <!-- /.box-header -->
+              <div class="box-body">
+                <ul>
+                  <li>Facilisis in pretium nisl aliquet</li>
+                  <li>Nulla volutpat aliquam velit
+                    <ul>
+                      <li>Phasellus iaculis neque</li>
+                      <li>Purus sodales ultricies</li>
+                      <li>Vestibulum laoreet porttitor sem</li>
+                      <li>Ac tristique libero volutpat at</li>
+                    </ul>
+                  </li>
+                  <li>Eget porttitor lorem</li>
+                </ul>
               </div>
+              <!-- /.box-body -->
             </div>
-
-            <!-- 디바이스 카테고리 -->
-            <div class="col-md-8">
-              <div class="box box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">디바이스 카테고리</h3>
-                </div>
-                <div class="box-body">
-                  <div class="form-group">
-                    <p class="custom-chk-rdo">
-                      <input type="radio" id="ts-rdo-11" name="rdo" value="" />
-                      <label for="ts-rdo-11">
-                        <span>PC모드</span>
-                      </label>
-                    </p>
-
-                    <p class="custom-chk-rdo">
-                      <input type="radio" id="ts-rdo-12" name="rdo" value="" />
-                      <label for="ts-rdo-12">
-                        <span>모바일 모드</span>
-                      </label>
-                    </p>
-
-                  </div>
-                </div>
+            <!-- /.box -->
+          </div>
+          <!-- 우측 옵션 -->
+          <div class="etc-option col-md-4">
+            <div class="box box-solid">
+              <div class="box-header with-border">
+                <h3 class="box-title">기타 설정</h3>
               </div>
-            </div>
-
-            <!-- 기타 옵션 -->
-            <div class="col-md-4">
-              <div class="box box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">기타 옵션</h3>
-                </div>
-                <div class="box-body">
-                  <div class="form-group">
+              <div class="box-body">
+                <div class="form-group clearfix">
+                  <h4 class="col-sm-4 control-label form-title">기타 옵션</h4>
+                  <div class="col-sm-8">
                     <p class="custom-chk-rdo">
                       <input type="radio" id="ts-rdo-21" name="rdo" value="" />
                       <label for="ts-rdo-21">
@@ -152,21 +84,114 @@
                         <span>옵션2</span>
                       </label>
                     </p>
-
                   </div>
                 </div>
-                <!-- /.box-body -->
-              </div>
-              <!-- /.box -->
-            </div>
-            <!-- /.col -->
-          </div>
+                <div class="form-group clearfix">
+                  <h4 class="col-sm-4 control-label form-title">기타 옵션</h4>
+                  <div class="col-sm-8">
+                    <p class="custom-chk-rdo">
+                      <input type="radio" id="ts-rdo-21" name="rdo" value="" />
+                      <label for="ts-rdo-21">
+                        <span>페이지 전체 확인</span>
+                      </label>
+                    </p>
 
-          <!-- /.row -->
+                    <p class="custom-chk-rdo">
+                      <input type="radio" id="ts-rdo-22" name="rdo" value="" />
+                      <label for="ts-rdo-22">
+                        <span>옵션2</span>
+                      </label>
+                    </p>
+                  </div>
+                </div>
+                <div class="form-group clearfix">
+                  <h4 class="col-sm-4 control-label form-title">기타 옵션</h4>
+                  <div class="col-sm-8">
+                    <p class="custom-chk-rdo">
+                      <input type="radio" id="ts-rdo-21" name="rdo" value="" />
+                      <label for="ts-rdo-21">
+                        <span>여러가지 옵션인인</span>
+                      </label>
+                    </p>
+                    <p class="custom-chk-rdo">
+                      <input type="radio" id="ts-rdo-21" name="rdo" value="" />
+                      <label for="ts-rdo-21">
+                        <span>페이지 전체 확인</span>
+                      </label>
+                    </p>
+
+                    <p class="custom-chk-rdo">
+                      <input type="radio" id="ts-rdo-22" name="rdo" value="" />
+                      <label for="ts-rdo-22">
+                        <span>옵션2</span>
+                      </label>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- /.box-body -->
+        <!-- 접기 버튼 -->
+        <div class="text-center">
+            <button type="button" class="btn btn-default btn-block" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        </div>
       </div>
 
+      <div class="box user-set-area">
+        <div class="box-header with-border">
+          <h3 class="box-title">선택하기</h3>
+        </div>
+        <div class="box-body">
+          <!-- 메인 카테고리 -->
+          <div class="form-group clearfix">
+            <h4 class="col-sm-3 control-label form-title">메인 카테고리
+              <a href="#set-category-modal" class="btn btn-sm btn-primary btn-set-category" role="button" onclick="showPop(this.hash); return false;">카테고리 관리</a>
+            </h4>
+            <div class="col-sm-9">
+              <p class="custom-chk-rdo">
+                <input type="radio" id="ts-rdo-01" name="rdo" value="" />
+                <label for="ts-rdo-01">
+                  <span>FrontFrontFront</span>
+                </label>
+              </p>
+
+              <p class="custom-chk-rdo">
+                <input type="radio" id="ts-rdo-02" name="rdo" value="" />
+                <label for="ts-rdo-02">
+                  <span>AdminAdminAdminAdminAdminAdminAdminAdm in</span>
+                </label>
+              </p>
+              <p class="custom-chk-rdo">
+                <input type="radio" id="ts-rdo-03" name="rdo" value="" />
+                <label for="ts-rdo-03">
+                  <span>AdminFronttFront</span>
+                </label>
+              </p>
+            </div>
+          </div>
+
+          <!-- 디바이스 카테고리 -->
+          <div class="form-group clearfix">
+            <h4 class="col-sm-3 control-label form-title">화면 모드 선택</h4>
+            <div class="col-sm-9">
+              <p class="custom-chk-rdo">
+                <input type="radio" id="ts-rdo-11" name="rdo" value="" />
+                <label for="ts-rdo-11">
+                  <span>PC모드</span>
+                </label>
+              </p>
+
+              <p class="custom-chk-rdo">
+                <input type="radio" id="ts-rdo-12" name="rdo" value="" />
+                <label for="ts-rdo-12">
+                  <span>모바일 모드</span>
+                </label>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div class="box">
         <div class="box-header with-border">
@@ -199,7 +224,7 @@
                 <li class="depth-2">
                   <div class="btn-group">
                   <!-- Split button -->
-                    <a href="#" class="btn btn-default"><span>2뎁스 싱글메뉴2</span></a>
+                    <a href="#" class="btn btn-default"><span>1234567899011111111ㅋ1111111111 </span></a>
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
@@ -242,7 +267,7 @@
                 <li class="depth-2">
                   <div class="btn-group">
                   <!-- Split button -->
-                    <a href="#" class="btn btn-default"><span>2뎁스 싱글메뉴2</span></a>
+                    <a href="#" class="btn btn-default"><span>2뎁스 싱글메뉴2뎁스 싱글메뉴2</span></a>
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
@@ -254,7 +279,7 @@
                 <li class="depth-2">
                   <div class="btn-group">
                   <!-- Split button -->
-                    <a href="#" class="btn btn-default"><span>2뎁스 싱글메뉴3</span></a>
+                    <a href="#" class="btn btn-default"><span>2뎁스 싱글2뎁스 싱글2뎁스 싱글2뎁스 싱글2뎁스 싱글메뉴3</span></a>
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
@@ -285,7 +310,8 @@
                 <li class="depth-2">
                   <div class="btn-group">
                   <!-- Split button -->
-                    <a href="#" class="btn btn-default"><span>2뎁스 싱글메뉴6</span></a>
+                    <a href="#" class="btn btn-default"><span>2뎁스 싱글메뉴6 2뎁스 싱글메뉴62뎁스 싱글메뉴62뎁스 싱글메뉴62뎁스 싱글메뉴62뎁스 싱글메뉴6
+                    2뎁스 싱글메뉴62뎁스 싱글메뉴62뎁스 싱글메뉴62뎁스 싱글메뉴6</span></a>
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                       <span class="caret"></span>
                       <span class="sr-only">Toggle Dropdown</span>
@@ -688,9 +714,13 @@
           </div>
         </div>
 
-        <!-- modal popup : 등록 및 수정 -->
+        <!-- modal popup : 상세(삭제) 및 수정 -->
+        <!-- 팝업 상태 클래스
+          @ 최상단 모달 랩퍼에 적용
+        .sta-detail : 상세보기
+        -->
         <div id="add-modify-modal" class="hide">
-          <div class="modal">
+          <div class="modal edit-modal">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -705,32 +735,34 @@
                     <div class="box-body">
                       <div class="form-group">
                         <label for="ins-form-txt-1">페이지명</label>
-                        <input type="text" class="form-control" id="ins-form-txt-1" placeholder="단순한 페이지명" readonly />
+                        <input type="text" class="form-control" id="ins-form-txt-1" placeholder="단순한 페이지명" />
                       </div>
                       <div class="form-group">
                         <label for="ins-form-txt-2">페이지 URL</label>
                         <input type="text" class="form-control" id="ins-form-txt-2" placeholder="/html/sample.html" />
                       </div>
-                      <div class="form-group">
-                        <h4>작업 진행상태</h4>
-                        <p class="custom-chk-rdo">
-                          <input type="radio" id="ins-rdo-1" name="ins-sta-rdo" value="" disabled />
-                          <label for="ins-rdo-1">
-                            <span>마크업 완료</span>
-                          </label>
-                        </p>
-                        <p class="custom-chk-rdo">
-                          <input type="radio" id="ins-rdo-2" name="ins-sta-rdo" value="" />
-                          <label for="ins-rdo-2">
-                            <span>검수 완료</span>
-                          </label>
-                        </p>
-                        <p class="custom-chk-rdo">
-                          <input type="radio" id="ins-rdo-3" name="ins-sta-rdo" value="" />
-                          <label for="ins-rdo-3">
-                            <span>수정 완료</span>
-                          </label>
-                        </p>
+                      <div class="form-group clearfix">
+                        <h4 class="col-sm-2 form-title">작업 진행상태</h4>
+                        <div class="col-sm-10">
+                          <p class="custom-chk-rdo">
+                            <input type="radio" id="ins-rdo-1" name="ins-sta-rdo" value="" checked />
+                            <label for="ins-rdo-1">
+                              <span>마크업 완료</span>
+                            </label>
+                          </p>
+                          <p class="custom-chk-rdo">
+                            <input type="radio" id="ins-rdo-2" name="ins-sta-rdo" value="" />
+                            <label for="ins-rdo-2">
+                              <span>검수 완료</span>
+                            </label>
+                          </p>
+                          <p class="custom-chk-rdo">
+                            <input type="radio" id="ins-rdo-3" name="ins-sta-rdo" value="" />
+                            <label for="ins-rdo-3">
+                              <span>수정 완료</span>
+                            </label>
+                          </p>
+                        </div>
                       </div>
                       <!-- 비고 -->
                       <div class="form-group">
@@ -745,10 +777,10 @@
 
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-default pull-left" data-dismiss="modal">취소</button>
-                  <button type="button" class="btn btn-primary disabled">저장</button>
+                  <button type="button" class="btn btn-default pull-left cancel" data-dismiss="modal">취소</button>
+                  <button type="button" class="btn btn-primary disabled submit">저장</button>
                   <!-- viewMode일때만 활성-->
-                  <button type="button" class="btn btn-danger">삭제</button>
+                  <button type="button" class="btn btn-danger delete">삭제</button>
                 </div>
               </div>
               <!-- /.modal-content -->
@@ -948,6 +980,11 @@
   <li><a href="#">Separated link</a></li>
 </ul>
 
+<!-- 공통 툴팁, role:presentation 보조기구에서 읽힘 방지 -->
+<small id="list-tooltip" class="bg-navy list-tooltip-holder" role="presentation"></small>
+<p class="btn btn-default" id="txt-leng-holder" role="presentation"></p>
+
+
 <script>
     $('.dropdown-toggle').click(function(e){
       var _this = $(this).closest('.btn-group');
@@ -959,6 +996,40 @@
         left: _left
       }).toggle();
     });
+
+    //tooltip
+    var txtLengHolder = $('#txt-leng-holder');
+    var isTxtOverflow = false; //텍스트가 넘치는지에 대한 Boolean값
+    $('.dropdown-toggle').prev().mousemove(getMousePointer)
+
+    function getMousePointer(e){
+      if(!isTxtOverflow) return false;
+      $('#list-tooltip').css({
+        top: e.pageY,
+        left: e.pageX+10
+      });
+      console.log('mouseMove')
+    }
+
+    function txtLengChecking(){
+      console.log('ch',txtLengHolder.innerWidth())
+      isTxtOverflow =  txtLengHolder.innerWidth() >= 268;
+      return isTxtOverflow;
+    }
+    //리스트 툴팁
+    $('.dropdown-toggle').prev().hover(
+        function(){
+          var anchorTxt = $(this).find('span').text();
+          txtLengHolder.text(anchorTxt);
+          if(!txtLengChecking()) return false;
+          $('#list-tooltip').text($(this).find('span').text()).addClass('show');
+        },
+        function(){
+          if(isTxtOverflow){
+            $('#list-tooltip').removeClass('show').removeAttr('style');
+          }
+        }
+    );
 
     $('.list-drmenu.dropdown-menu a').click(function(e){
       e.preventDefault();

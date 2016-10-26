@@ -6,7 +6,22 @@
 */
 
 /* worksheet */
-.top-settings{_display: none;}
+.noti-settings{}
+.noti-settings > .box-body{padding:0;}
+.noti-settings > .box-body > div > .box{margin-bottom:0; box-shadow:none;}
+.noti-settings > .box-header + .box-body .box > .box-header{padding-top:0;}
+.noti-settings .notice-area{padding-left:0;}
+.noti-settings .notice-area .box-body{padding-left:0;}
+.noti-settings .etc-option{padding-right:0;}
+.noti-settings .etc-option .box-body{padding-left:0;}
+.noti-settings .etc-option .form-group{padding-bottom:15px; border-bottom:1px solid #f4f4f4}
+.noti-settings .etc-option .form-group:last-child{margin-bottom:0; border-bottom:none;}
+
+.user-set-area .btn-set-category{position: absolute; left:100px; top:-9px; }
+.user-set-area .form-group{margin-bottom:0; padding-top:10px; padding-bottom:15px; border-bottom:1px solid #f4f4f4}
+.user-set-area .form-group:first-child{padding-top:2px;}
+.user-set-area .form-group:last-child{ padding-bottom:0; border-bottom:none;}
+
 .page-list-wrap{padding:30px;}
 .page-list-wrap ul {margin:0; padding:0;}
 .page-list-wrap li{list-style: none;}
@@ -45,28 +60,51 @@
 }
 .page-list-wrap li.depth-2 .btn-group > a{width:270px; height:34px; text-align: left;}
 .page-list-wrap li.depth-2 .btn-group > a > span{
-    position:absolute; left:0; top:0;
+    /*position:absolute; left:0; top:0;*/
     display: inline-block;
     width:100%;
-    padding:inherit;
+    /*padding:inherit;*/
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis; vertical-align: top;
 }
-.page-list-wrap li.depth-2 .btn-group > a:hover > span{
+/*.page-list-wrap li.depth-2 .btn-group > a:hover > span{
     background-color: #e7e7e7;
     box-shadow: 0 2px 5px #adadad;
     white-space: normal;
 }
-.page-list-wrap li.depth-2 .btn-group.open > a:hover > span{white-space: nowrap;}
+.page-list-wrap li.depth-2 .btn-group.open > a:hover > span{white-space: nowrap;}*/
 .page-list-wrap li.depth-2 .btn-group > a + button{width:30px;}
 .page-list-wrap li.depth-2 .label{position: absolute; right:31px; bottom:2px;}
-.list-drmenu.dropdown-menu{width:300px;box-shadow: 0 2px 5px #adadad;}
+.dropdown-menu.list-drmenu{width:300px;box-shadow: 0 2px 5px #adadad;}
+.list-tooltip-holder{
+    position: absolute; left:-9999px; top:-9999px; z-index: 1010;
+    max-width:200px;
+    padding: .2em .6em .3em;
+    border-radius: .25em;
+    font-size: 75%; font-weight:100; color: #fff; vertical-align: baseline;line-height:1.2;
+    text-align:left; white-space: normal;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+.list-tooltip-holder.show{opacity: 1;}
+#txt-leng-holder{position: absolute; bottom:-9999px; left:-9999px; visibility: hidden;}
 
-.insert-form-wrap .box-body{padding:0 0 0;}
-.insert-form-wrap .box-body .form-inline{margin:0 30px; padding: 20px 0 10px; border-bottom:1px solid #eee;}
+/* 모달 팝업 */
+.edit-modal .modal-footer .delete{display:none;}
+.edit-modal .form-title{padding:0; vertical-align:middle;}
+.edit-modal .form-title + div{display:inline-block; vertical-align:middle;}
+
+.sta-detail .edit-modal input[type="radio"]:not(:checked),
+.sta-detail .edit-modal input[type="radio"]:not(:checked)+label{display:none;}
+.sta-detail .edit-modal .modal-footer .delete{display:inline-block;}
+.sta-detail .edit-modal .modal-footer .submit{display:none;}
+
+.insert-form-wrap .box-body .form-inline{position:relative; padding: 20px 0 10px; border-bottom:1px solid #eee;}
 .insert-form-wrap .box-body .form-inline:last-of-type{border-bottom:none;}
 .insert-form-wrap .box-body .form-inline .form-group{margin-bottom: 10px;}
 .insert-form-wrap .box-body .form-inline .form-control{width:100%;}
-.insert-form-wrap .box-body .title{font-weight: 700;}
+.insert-form-wrap .box-body .btn-add-remove{position: absolute; left:0px; top:20px; }
+.form-group .form-title{display:inline-block;  font-size:inherit; font-weight: 700; }
+
 /* 공통 */
 
 /* 네비게이션 트리 : 카테고리 세팅 */
@@ -90,6 +128,10 @@
     margin-bottom: 5px;
     font-weight: 700;
     vertical-align: middle;
+}
+
+@media only screen and (min-width : 1280px) {
+    .page-list-wrap li.depth-1{height:360px;}
 }
 
 

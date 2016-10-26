@@ -4,16 +4,20 @@ var path = require('path');
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
+var lessToCss = require('gulp-less');
 var minifycss = require('gulp-minify-css');
 var minifyhtml = require('gulp-minify-html');
 var sourcemaps  = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
+var lessAutoprefixModule = require('less-plugin-autoprefix');
+var lessAutoprefix = new lessAutoprefixModule({ browsers: ['last 2 versions'] });
 var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync').create();
 var browserify = require('browserify');
 var plumber = require('gulp-plumber');
 var inquirer = require('inquirer');
+var clean = require('gulp-clean');
 
 var pkg = require('./package.json');
 var dirs = pkg['configs'].directories;
@@ -37,6 +41,7 @@ gulp.task('clean', function (done) {
     ], done);
 });
 
+
 //html include
 gulp.task('include',function() {
 
@@ -57,17 +62,27 @@ gulp.task('include',function() {
 //copy task
 gulp.task('copy:bootstrap', function () {
     return gulp.src([
-            dirs.devSrc + '/assets/bootstrap/**/*'
+            dirs.devSrc + '/assets/bootstrap/**/*',
+            '!' + dirs.devSrc + '/assets/bootstrap/less/**/*'
         ])
         .pipe(gulp.dest(dirs.buildSrc +'/assets/bootstrap'))
-        .pipe(browserSync.reload({stream:true})); //browserSync 로 브라우저에 반영;
 });
+
 gulp.task('copy:lte-lib', function () {
     return gulp.src([
-            dirs.devSrc + '/assets/lte_lib/**/*'
+            dirs.devSrc + '/assets/lte_lib/**/*',
+            '!' + dirs.devSrc + '/assets/lte_lib/less/**/*'
         ])
         .pipe(gulp.dest(dirs.buildSrc +'/assets/lte_lib'))
-        .pipe(browserSync.reload({stream:true}));
+});
+
+gulp.task('copy:lte-lib-css', function () {
+    return gulp.src([
+            dirs.devSrc + '/assets/lte_lib/less/AdminLTE.less',
+            dirs.devSrc + '/assets/lte_lib/less/skins/all-skins.less'
+        ])
+        .pipe(lessToCss())
+        .pipe(gulp.dest(dirs.buildSrc +'/assets/lte_lib/css'))
 });
 
 gulp.task('copy:images', function () {
@@ -75,17 +90,22 @@ gulp.task('copy:images', function () {
             dirs.devSrc + '/assets/images/**/*'
         ])
         .pipe(gulp.dest(dirs.buildSrc +'/assets/images'))
-        .pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('copy:css', function () {
     return gulp.src([
-            dirs.devSrc + '/assets/css/**/*'
+            dirs.devSrc + '/assets/css/**/*.css'
         ])
         .pipe(gulp.dest(dirs.buildSrc +'/assets/css'))
-        .pipe(browserSync.reload({stream:true}));
 });
 
+gulp.task('copy:etc', function () {
+    return gulp.src([
+            dirs.devSrc + '/index.html'])
+        .pipe(gulp.dest(dirs.buildSrc));
+});
+
+//watch tasks
 gulp.task('copy:watch-css', function () {
     return gulp.src([
             dirs.devSrc + '/assets/css/**/*',
@@ -96,7 +116,8 @@ gulp.task('copy:watch-css', function () {
 });
 gulp.task('copy:watch-lte-css', function () {
     return gulp.src([
-            dirs.devSrc + '/assets/lte_lib/css/**/*'
+            dirs.devSrc + '/assets/lte_lib/css/**/*.css',
+            '!'+ dirs.devSrc + '/assets/lte_lib/css/less'
         ])
         .pipe(gulp.dest(dirs.buildSrc +'/assets/lte_lib/css'))
         .pipe(browserSync.reload({stream:true}));
@@ -121,11 +142,7 @@ gulp.task('copy:watch-js-2', function () {
         .pipe(browserSync.reload({stream:true}));
 });
 
-gulp.task('copy:etc', function () {
-    return gulp.src([
-            dirs.devSrc + '/index.html'])
-        .pipe(gulp.dest(dirs.buildSrc));
-});
+
 
 //optimize task
 gulp.task('copy:none-compress', function () {
@@ -188,7 +205,8 @@ gulp.task('copy-project', [
     'copy:js',
     'copy:images',
     'copy:bootstrap',
-    'copy:lte-lib'
+    'copy:lte-lib',
+    'copy:lte-lib-css'
 ]);
 
 // optimise build

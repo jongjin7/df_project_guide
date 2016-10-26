@@ -4,6 +4,8 @@
 .idea
 .sass-cache/
 /build/
+/dist/
 /node_modules/
 TODO
 test.html
+

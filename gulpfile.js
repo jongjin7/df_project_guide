@@ -6,7 +6,7 @@ var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var lessToCss = require('gulp-less');
 var minifycss = require('gulp-minify-css');
-var minifyhtml = require('gulp-minify-html');
+var htmlReplace = require('gulp-html-replace');
 var sourcemaps  = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var lessAutoprefixModule = require('less-plugin-autoprefix');
@@ -32,7 +32,7 @@ var plumberOption = {
 }
 
 // ---------------------------------------------------------------------
-// | Todo tasks                                                      |
+// | Build Task                                                         |
 // ---------------------------------------------------------------------
 
 gulp.task('clean', function (done) {
@@ -40,7 +40,6 @@ gulp.task('clean', function (done) {
         dirs.buildSrc
     ], done);
 });
-
 
 //html include
 gulp.task('include',function() {
@@ -139,12 +138,25 @@ gulp.task('copy:watch-js-2', function () {
     return gulp.src([
             dirs.devSrc + '/assets/js/interactive/second/**/*'])
         .pipe(gulp.dest(dirs.buildSrc +'/assets/js/interactive/second'))
-        .pipe(browserSync.reload({stream:true}));
+        .pipe(brwserSync.reload({stream:true}));
 });
 
 
+// ---------------------------------------------------------------------
+// | Distribution task : optimize                                      |
+// ---------------------------------------------------------------------
 
-//optimize task
+//HTML Replace
+gulp.task('replace:html', function () {
+    gulp.src(dirs.buildSrc + '/html/**/*.html')
+        .pipe(htmlReplace({
+            'minifyCss': 'styles.min.css',
+            'minifyVendor': 'vendor.min.js',
+            'minifyApp': 'app.min.js'
+        }))
+        .pipe(gulp.dest(dirs.distSrc + '/html'));
+});
+
 gulp.task('copy:none-compress', function () {
     return gulp.src([
             dirs.devSrc + '/assets/css/fonts/*'
@@ -196,6 +208,11 @@ gulp.task('compress:js-vendor', function () {
         .pipe(gulp.dest(dirs.buildSrc +'/assets/js/'));
 });
 
+
+// ---------------------------------------------------------------------
+// | Main tasks                                                        |
+// ---------------------------------------------------------------------
+
 // project별로 task를 생성한다.
 // only copy build
 gulp.task('copy-project', [
@@ -223,10 +240,6 @@ gulp.task('optimise-project', [
 
 ]);
 
-
-// ---------------------------------------------------------------------
-// | Main tasks                                                        |
-// ---------------------------------------------------------------------
 
 //파일 변경 감지 테스트
 gulp.task('watch', function () {

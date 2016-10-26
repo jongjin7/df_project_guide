@@ -24,6 +24,7 @@
   },
   "configs": {
     "directories": {
+      "distSrc": "dist",
       "buildSrc": "build",
       "devSrc": "dev"
     }
@@ -34,13 +35,12 @@
     "del": "^1.2.0",
     "glob": "^5.0.5",
     "glop": "^0.3.1",
-    "grunt-svgmin": "^2.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-browserify": "^0.5.1",
     "gulp-cached": "^1.1.0",
     "gulp-concat": "^2.5.2",
-    "gulp-html-replace": "^1.5.0",
+    "gulp-html-replace": "^1.6.1",
     "gulp-include": "^2.3.1",
     "gulp-jshint": "^1.11.0",
     "gulp-less": "^3.1.0",

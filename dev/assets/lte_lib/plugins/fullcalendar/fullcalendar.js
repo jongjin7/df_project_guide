@@ -193,13 +193,13 @@ function mergeOptions(target) {
 }
 
 
-// overcome sucky view-option-hash and option-merging behavior messing with options it shouldn't
+// overcome sucky views-option-hash and option-merging behavior messing with options it shouldn't
 function isForcedAtomicOption(name) {
 	// Any option that ends in "Time" or "Duration" is probably a Duration,
 	// and these will commonly be specified as plain objects, which we don't want to mess up.
 	return /(Time|Duration)$/.test(name);
 }
-// FIX: find a different solution for view-option-hashes and have a whitelist
+// FIX: find a different solution for views-option-hashes and have a whitelist
 // for options that can be recursively merged.
 
     var langOptionHash = fc.langs = {}; // initialize and expose
@@ -1684,7 +1684,7 @@ var Popover = Class.extend({
 		viewportTop += windowEl.scrollTop();
 		viewportLeft += windowEl.scrollLeft();
 
-		// constrain to the view port. if constrained by two edges, give precedence to top/left
+		// constrain to the views port. if constrained by two edges, give precedence to top/left
 		if (options.viewportConstrain !== false) {
 			top = Math.min(top, viewportTop + viewportEl.outerHeight() - height - this.margin);
 			top = Math.max(top, viewportTop + this.margin);
@@ -2486,7 +2486,7 @@ var MouseFollower = Class.extend({
 var RowRenderer = Class.extend({
 
 	view: null, // a View object
-	isRTL: null, // shortcut to the view's isRTL option
+	isRTL: null, // shortcut to the views's isRTL option
 	cellHtml: '<td/>', // plain default HTML used for a cell when no other is available
 
 
@@ -2824,7 +2824,7 @@ var Grid = fc.Grid = RowRenderer.extend({
 		});
 
 		// attach event-element-related handlers. in Grid.events
-		// same garbage collection note as above.
+		// same garbage collections note as above.
 		this.bindSegHandlers();
 
 		$(document).on('dragstart', this.documentDragStartProxy); // jqui drag
@@ -3421,11 +3421,11 @@ Grid.mixin({
 			parentEl: view.el,
 			opacity: view.opt('dragOpacity'),
 			revertDuration: view.opt('dragRevertDuration'),
-			zIndex: 2 // one above the .fc-view
+			zIndex: 2 // one above the .fc-views
 		});
 
-		// Tracks mouse movement over the *view's* coordinate map. Allows dragging and dropping between subcomponents
-		// of the view.
+		// Tracks mouse movement over the *views's* coordinate map. Allows dragging and dropping between subcomponents
+		// of the views.
 		var dragListener = new DragListener(view.coordMap, {
 			distance: 5,
 			scroll: view.opt('dragScroll'),
@@ -4062,9 +4062,9 @@ function getDraggedElMeta(el) {
 
 var DayGrid = Grid.extend({
 
-	numbersVisible: false, // should render a row for day/week numbers? set by outside view. TODO: make internal
+	numbersVisible: false, // should render a row for day/week numbers? set by outside views. TODO: make internal
 	bottomCoordPadding: 0, // hack for extending the hit area for the last row of the coordinate grid
-	breakOnWeeks: null, // should create a new row for each week? set by outside view
+	breakOnWeeks: null, // should create a new row for each week? set by outside views
 
 	cellDates: null, // flat chronological array of each cell's dates
 	dayToCellOffsets: null, // maps days offsets from grid's start date, to cell offsets
@@ -4076,7 +4076,7 @@ var DayGrid = Grid.extend({
 
 	// Renders the rows and columns into the component's `this.el`, which should already be assigned.
 	// isRigid determins whether the individual rows should ignore the contents and be a constant height.
-	// Relies on the view's colCnt and rowCnt. In the future, this component should probably be self-sufficient.
+	// Relies on the views's colCnt and rowCnt. In the future, this component should probably be self-sufficient.
 	render: function(isRigid) {
 		var view = this.view;
 		var rowCnt = this.rowCnt;
@@ -5033,7 +5033,7 @@ DayGrid.mixin({
 				if (clickOption === 'popover') {
 					_this.showSegPopover(cell, moreEl, reslicedAllSegs);
 				}
-				else if (typeof clickOption === 'string') { // a view name
+				else if (typeof clickOption === 'string') { // a views name
 					view.calendar.zoomTo(date, clickOption);
 				}
 			});
@@ -5210,7 +5210,7 @@ var TimeGrid = Grid.extend({
 
 
 	// Renders the time grid into `this.el`, which should already be assigned.
-	// Relies on the view's colCnt. In the future, this component should probably be self-sufficient.
+	// Relies on the views's colCnt. In the future, this component should probably be self-sufficient.
 	render: function() {
 		this.el.html(this.renderHtml());
 		this.dayEls = this.el.find('.fc-day');
@@ -5258,7 +5258,7 @@ var TimeGrid = Grid.extend({
 		var html = '';
 		var slotNormal = this.slotDuration.asMinutes() % 15 === 0;
 		var slotTime = moment.duration(+this.minTime); // wish there was .clone() for durations
-		var slotDate; // will be on the view's first day, but we only care about its time
+		var slotDate; // will be on the views's first day, but we only care about its time
 		var minutes;
 		var axisHtml;
 
@@ -6099,20 +6099,20 @@ function compareForwardSlotSegs(seg1, seg2) {
 
 var View = fc.View = Class.extend({
 
-	type: null, // subclass' view name (string)
+	type: null, // subclass' views name (string)
 	name: null, // deprecated. use `type` instead
 
 	calendar: null, // owner Calendar object
-	options: null, // view-specific options
+	options: null, // views-specific options
 	coordMap: null, // a CoordMap object for converting pixel regions to dates
-	el: null, // the view's containing element. set by Calendar
+	el: null, // the views's containing element. set by Calendar
 
-	// range the view is actually displaying (moments)
+	// range the views is actually displaying (moments)
 	start: null,
 	end: null, // exclusive
 
-	// range the view is formally responsible for (moments)
-	// may be different from start/end. for example, a month view might have 1st-31st, excluding padded dates
+	// range the views is formally responsible for (moments)
+	// may be different from start/end. for example, a month views might have 1st-31st, excluding padded dates
 	intervalStart: null,
 	intervalEnd: null, // exclusive
 
@@ -6163,13 +6163,13 @@ var View = fc.View = Class.extend({
 	opt: function(name) {
 		var val;
 
-		val = this.options[name]; // look at view-specific options first
+		val = this.options[name]; // look at views-specific options first
 		if (val !== undefined) {
 			return val;
 		}
 
 		val = this.calendar.options[name];
-		if ($.isPlainObject(val) && !isForcedAtomicOption(name)) { // view-option-hashes are deprecated
+		if ($.isPlainObject(val) && !isForcedAtomicOption(name)) { // views-option-hashes are deprecated
 			return smartProperty(val, this.type);
 		}
 
@@ -6177,7 +6177,7 @@ var View = fc.View = Class.extend({
 	},
 
 
-	// Triggers handlers that are view-related. Modifies args before passing to calendar.
+	// Triggers handlers that are views-related. Modifies args before passing to calendar.
 	trigger: function(name, thisObj) { // arguments beyond thisObj are passed along
 		var calendar = this.calendar;
 
@@ -6185,7 +6185,7 @@ var View = fc.View = Class.extend({
 			calendar,
 			[name, thisObj || this].concat(
 				Array.prototype.slice.call(arguments, 2), // arguments beyond thisObj
-				[ this ] // always make the last argument a reference to the view. TODO: deprecate
+				[ this ] // always make the last argument a reference to the views. TODO: deprecate
 			)
 		);
 	},
@@ -6267,7 +6267,7 @@ var View = fc.View = Class.extend({
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Computes what the title at the top of the calendar should be for this view
+	// Computes what the title at the top of the calendar should be for this views
 	computeTitle: function() {
 		return this.formatRange(
 			{ start: this.intervalStart, end: this.intervalEnd },
@@ -6324,7 +6324,7 @@ var View = fc.View = Class.extend({
 	},
 
 
-	// Renders the view inside an already-defined `this.el`
+	// Renders the views inside an already-defined `this.el`
 	render: function() {
 		// subclasses should implement
 	},
@@ -6341,7 +6341,7 @@ var View = fc.View = Class.extend({
 	},
 
 
-	// Clears the view's rendering
+	// Clears the views's rendering
 	destroy: function() {
 		this.el.empty(); // removes inner contents but leaves the element intact
 	},
@@ -6389,7 +6389,7 @@ var View = fc.View = Class.extend({
 
 
 	// Updates the vertical dimensions of the calendar to the specified height.
-	// if `isAuto` is set to true, height becomes merely a suggestion and the view should use its "natural" height.
+	// if `isAuto` is set to true, height becomes merely a suggestion and the views should use its "natural" height.
 	setHeight: function(height, isAuto) {
 		// subclasses should implement
 	},
@@ -6399,12 +6399,12 @@ var View = fc.View = Class.extend({
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Given the total height of the view, return the number of pixels that should be used for the scroller.
+	// Given the total height of the views, return the number of pixels that should be used for the scroller.
 	// By default, uses this.scrollerEl, but can pass this in as well.
 	// Utility for subclasses.
 	computeScrollerHeight: function(totalHeight, scrollerEl) {
 		var both;
-		var otherHeight; // cumulative height of everything that is not the scrollerEl in the view (header+borders)
+		var otherHeight; // cumulative height of everything that is not the scrollerEl in the views (header+borders)
 
 		scrollerEl = scrollerEl || this.scrollerEl;
 		both = this.el.add(scrollerEl);
@@ -6437,7 +6437,7 @@ var View = fc.View = Class.extend({
 
 
 	// Set the scroll value of the scroller to the previously recorded value.
-	// Should be called after we know the view's dimensions have been restored following some type of destructive
+	// Should be called after we know the views's dimensions have been restored following some type of destructive
 	// operation (like temporarily removing DOM elements).
 	restoreScroll: function() {
 		if (this.scrollTop !== null) {
@@ -6461,7 +6461,7 @@ var View = fc.View = Class.extend({
 	},
 
 
-	// Renders the events onto the view.
+	// Renders the events onto the views.
 	renderEvents: function() {
 		// subclasses should implement
 	},
@@ -6477,7 +6477,7 @@ var View = fc.View = Class.extend({
 	},
 
 
-	// Removes event elements from the view.
+	// Removes event elements from the views.
 	destroyEvents: function() {
 		// subclasses should implement
 	},
@@ -6517,7 +6517,7 @@ var View = fc.View = Class.extend({
 
 	// Iterates through event segments. Goes through all by default.
 	// If the optional `event` argument is specified, only iterates through segments linked to that event.
-	// The `this` value of the callback function will be the view.
+	// The `this` value of the callback function will be the views.
 	eventSegEach: function(func, event) {
 		var segs = this.getEventSegs();
 		var i;
@@ -6530,7 +6530,7 @@ var View = fc.View = Class.extend({
 	},
 
 
-	// Retrieves all the rendered segment objects for the view
+	// Retrieves all the rendered segment objects for the views
 	getEventSegs: function() {
 		// subclasses must implement
 		return [];
@@ -6556,7 +6556,7 @@ var View = fc.View = Class.extend({
 	},
 
 
-	// Must be called when an event in the view is dropped onto new location.
+	// Must be called when an event in the views is dropped onto new location.
 	// `dropLocation` is an object that contains the new start/end/allDay values for the event.
 	reportEventDrop: function(event, dropLocation, el, ev) {
 		var calendar = this.calendar;
@@ -6647,7 +6647,7 @@ var View = fc.View = Class.extend({
 	},
 
 
-	// Must be called when an event in the view has been resized to a new length
+	// Must be called when an event in the views has been resized to a new length
 	reportEventResize: function(event, newEnd, el, ev) {
 		var calendar = this.calendar;
 		var mutateResult = calendar.mutateEvent(event, { end: newEnd });
@@ -6671,7 +6671,7 @@ var View = fc.View = Class.extend({
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Selects a date range on the view. `start` and `end` are both Moments.
+	// Selects a date range on the views. `start` and `end` are both Moments.
 	// `ev` is the native mouse event that begin the interaction.
 	select: function(range, ev) {
 		this.unselect(ev);
@@ -7105,7 +7105,7 @@ var View = fc.View = Class.extend({
 			element.addClass('fc-unthemed');
 		}
 
-		content = $("<div class='fc-view-container'/>").prependTo(element);
+		content = $("<div class='fc-views-container'/>").prependTo(element);
 
 		header = new Header(t, options);
 		headerElement = header.render();
@@ -7151,14 +7151,14 @@ var View = fc.View = Class.extend({
 	}
 
 
-	// Renders a view because of a date change, view-type change, or for the first time
+	// Renders a views because of a date change, views-type change, or for the first time
 	function renderView(delta, viewType) {
 		ignoreWindowResize++;
 
-		// if viewType is changing, destroy the old view
+		// if viewType is changing, destroy the old views
 		if (currentView && viewType && currentView.type !== viewType) {
 			header.deactivateButton(currentView.type);
-			freezeContentHeight(); // prevent a scroll jump when view element is removed
+			freezeContentHeight(); // prevent a scroll jump when views element is removed
 			if (currentView.start) { // rendered before?
 				currentView.destroyView();
 			}
@@ -7166,16 +7166,16 @@ var View = fc.View = Class.extend({
 			currentView = null;
 		}
 
-		// if viewType changed, or the view was never created, create a fresh view
+		// if viewType changed, or the views was never created, create a fresh views
 		if (!currentView && viewType) {
 			currentView = instantiateView(viewType);
-			currentView.el =  $("<div class='fc-view fc-" + viewType + "-view' />").appendTo(content);
+			currentView.el =  $("<div class='fc-views fc-" + viewType + "-views' />").appendTo(content);
 			header.activateButton(viewType);
 		}
 
 		if (currentView) {
 
-			// let the view determine what the delta means
+			// let the views determine what the delta means
 			if (delta < 0) {
 				date = currentView.computePrevDate(date);
 			}
@@ -7183,7 +7183,7 @@ var View = fc.View = Class.extend({
 				date = currentView.computeNextDate(date);
 			}
 
-			// render or rerender the view
+			// render or rerender the views
 			if (
 				!currentView.start || // never rendered before
 				delta || // explicit date window change
@@ -7218,7 +7218,7 @@ var View = fc.View = Class.extend({
 	// -----------------------------------------------------------------------------------
 
 
-	// Given a view name for a custom view or a standard view, creates a ready-to-go View object
+	// Given a views name for a custom views or a standard views, creates a ready-to-go View object
 	function instantiateView(viewType) {
 		var spec = getViewSpec(viewType);
 
@@ -7226,7 +7226,7 @@ var View = fc.View = Class.extend({
 	}
 
 
-	// Gets information about how to create a view
+	// Gets information about how to create a views
 	function getViewSpec(requestedViewType) {
 		var allDefaultButtonText = options.defaultButtonText || {};
 		var allButtonText = options.buttonText || {};
@@ -7251,9 +7251,9 @@ var View = fc.View = Class.extend({
 			}
 		}
 
-		// iterate up a view's spec ancestor chain util we find a class to instantiate
+		// iterate up a views's spec ancestor chain util we find a class to instantiate
 		while (viewType && !viewClass) {
-			viewOptions = {}; // only for this specific view in the ancestry
+			viewOptions = {}; // only for this specific views in the ancestry
 			processSpecInput(fcViews[viewType]); // $.fullCalendar.views, lower precedence
 			processSpecInput(hash[viewType]); // options at initialization, higher precedence
 			viewOptionsChain.unshift(viewOptions); // record older ancestors first
@@ -7272,12 +7272,12 @@ var View = fc.View = Class.extend({
 				unitIsSingle = computeIntervalAs(unit, duration) === 1;
 			}
 
-			// options that are specified per the view's duration, like "week" or "day"
+			// options that are specified per the views's duration, like "week" or "day"
 			if (unitIsSingle && hash[unit]) {
 				viewOptions = $.extend({}, hash[unit], viewOptions); // lowest priority
 			}
 
-			// compute the final text for the button representing this view
+			// compute the final text for the button representing this views
 			buttonText =
 				allButtonText[requestedViewType] || // init options, like "agendaWeek"
 				(unitIsSingle ? allButtonText[unit] : null) || // init options, like "week"
@@ -7297,13 +7297,13 @@ var View = fc.View = Class.extend({
 	}
 
 
-	// Returns a boolean about whether the view is okay to instantiate at some point
+	// Returns a boolean about whether the views is okay to instantiate at some point
 	function isValidViewType(viewType) {
 		return Boolean(getViewSpec(viewType));
 	}
 
 
-	// Gets the text that should be displayed on a view's button in the header
+	// Gets the text that should be displayed on a views's button in the header
 	function getViewButtonText(viewType) {
 		var spec = getViewSpec(viewType);
 
@@ -7371,7 +7371,7 @@ var View = fc.View = Class.extend({
 		if (
 			!ignoreWindowResize &&
 			ev.target === window && // so we don't process jqui "resize" events that have bubbled up
-			currentView.start // view has already been rendered
+			currentView.start // views has already been rendered
 		) {
 			if (updateSize(true)) {
 				currentView.trigger('windowResize', _element);
@@ -7383,7 +7383,7 @@ var View = fc.View = Class.extend({
 	
 	/* Event Fetching/Rendering
 	-----------------------------------------------------------------------------*/
-	// TODO: going forward, most of this stuff should be directly handled by the view
+	// TODO: going forward, most of this stuff should be directly handled by the views
 
 
 	function refetchEvents() { // can be called as an API method
@@ -7534,20 +7534,20 @@ var View = fc.View = Class.extend({
 	}
 
 
-	// Forces navigation to a view for the given date.
-	// `viewType` can be a specific view name or a generic one like "week" or "day".
+	// Forces navigation to a views for the given date.
+	// `viewType` can be a specific views name or a generic one like "week" or "day".
 	function zoomTo(newDate, viewType) {
 		var viewStr;
 		var match;
 
-		if (!viewType || !isValidViewType(viewType)) { // a general view name, or "auto"
+		if (!viewType || !isValidViewType(viewType)) { // a general views name, or "auto"
 			viewType = viewType || 'day';
 			viewStr = header.getViewsWithButtons().join(' '); // space-separated string of all the views in the header
 
-			// try to match a general view name, like "week", against a specific one, like "agendaWeek"
+			// try to match a general views name, like "week", against a specific one, like "agendaWeek"
 			match = viewStr.match(new RegExp('\\w+' + capitaliseFirstLetter(viewType)));
 
-			// fall back to the day view being used in the header
+			// fall back to the day views being used in the header
 			if (!match) {
 				match = viewStr.match(/\w+Day/);
 			}
@@ -7701,7 +7701,7 @@ function Header(calendar, options) {
 								calendar[buttonName]();
 							};
 						}
-						else if (calendar.isValidViewType(buttonName)) { // a view type
+						else if (calendar.isValidViewType(buttonName)) { // a views type
 							buttonClick = function() {
 								calendar.changeView(buttonName);
 							};
@@ -7710,7 +7710,7 @@ function Header(calendar, options) {
 						}
 						if (buttonClick) {
 
-							// smartProperty allows different text per view button (ex: "Agenda Week" vs "Basic Week")
+							// smartProperty allows different text per views button (ex: "Agenda Week" vs "Basic Week")
 							themeIcon = smartProperty(options.themeButtonIcons, buttonName);
 							normalIcon = smartProperty(options.buttonIcons, buttonName);
 							defaultText = smartProperty(options.defaultButtonText, buttonName); // from languages
@@ -8720,7 +8720,7 @@ function EventManager(options) { // assumed to be a calendar
 	t.getBusinessHoursEvents = getBusinessHoursEvents;
 
 
-	// Returns an array of events as to when the business hours occur in the given view.
+	// Returns an array of events as to when the business hours occur in the given views.
 	// Abuse of our event system :(
 	function getBusinessHoursEvents() {
 		var optionVal = options.businessHours;
@@ -8936,7 +8936,7 @@ function backupEventDates(event) {
 	event._end = event.end ? event.end.clone() : null;
 }
 
-    /* An abstract class for the "basic" views, as well as month view. Renders one or more rows of day cells.
+    /* An abstract class for the "basic" views, as well as month views. Renders one or more rows of day cells.
 ----------------------------------------------------------------------------------------------------------------------*/
 // It is a manager for a DayGrid subcomponent, which does most of the heavy lifting.
 // It is responsible for managing width/height.
@@ -8955,7 +8955,7 @@ var BasicView = fcViews.basic = View.extend({
 
 	initialize: function() {
 		this.dayGrid = new DayGrid(this);
-		this.coordMap = this.dayGrid.coordMap; // the view's date-to-cell mapping is identical to the subcomponent's
+		this.coordMap = this.dayGrid.coordMap; // the views's date-to-cell mapping is identical to the subcomponent's
 	},
 
 
@@ -8988,14 +8988,14 @@ var BasicView = fcViews.basic = View.extend({
 	},
 
 
-	// Renders the view into `this.el`, which should already be assigned
+	// Renders the views into `this.el`, which should already be assigned
 	render: function() {
 
 		this.dayNumbersVisible = this.dayGrid.rowCnt > 1; // TODO: make grid responsible
 		this.weekNumbersVisible = this.opt('weekNumbers');
 		this.dayGrid.numbersVisible = this.dayNumbersVisible || this.weekNumbersVisible;
 
-		this.el.addClass('fc-basic-view').html(this.renderHtml());
+		this.el.addClass('fc-basic-views').html(this.renderHtml());
 
 		this.headRowEl = this.el.find('thead .fc-row');
 
@@ -9014,7 +9014,7 @@ var BasicView = fcViews.basic = View.extend({
 	},
 
 
-	// Builds the HTML skeleton for the view.
+	// Builds the HTML skeleton for the views.
 	// The day-grid component will render inside of a container defined by this HTML.
 	renderHtml: function() {
 		return '' +
@@ -9126,7 +9126,7 @@ var BasicView = fcViews.basic = View.extend({
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Refreshes the horizontal dimensions of the view
+	// Refreshes the horizontal dimensions of the views
 	updateWidth: function() {
 		if (this.weekNumbersVisible) {
 			// Make sure all week number cells running down the side have the same width.
@@ -9138,7 +9138,7 @@ var BasicView = fcViews.basic = View.extend({
 	},
 
 
-	// Adjusts the vertical dimensions of the view to the specified values
+	// Adjusts the vertical dimensions of the views to the specified values
 	setHeight: function(totalHeight, isAuto) {
 		var eventLimit = this.opt('eventLimit');
 		var scrollerHeight;
@@ -9175,7 +9175,7 @@ var BasicView = fcViews.basic = View.extend({
 	},
 
 
-	// Sets the height of just the DayGrid component in this view
+	// Sets the height of just the DayGrid component in this views
 	setGridHeight: function(height, isAuto) {
 		if (isAuto) {
 			undistributeHeight(this.dayGrid.rowEls); // let the rows be their natural height with no expanding
@@ -9190,7 +9190,7 @@ var BasicView = fcViews.basic = View.extend({
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Renders the given events onto the view and populates the segments array
+	// Renders the given events onto the views and populates the segments array
 	renderEvents: function(events) {
 		this.dayGrid.renderEvents(events);
 
@@ -9198,7 +9198,7 @@ var BasicView = fcViews.basic = View.extend({
 	},
 
 
-	// Retrieves all segment objects that are rendered in the view
+	// Retrieves all segment objects that are rendered in the views
 	getEventSegs: function() {
 		return this.dayGrid.getEventSegs();
 	},
@@ -9247,7 +9247,7 @@ var BasicView = fcViews.basic = View.extend({
 
 });
 
-    /* A month view with day cells running in rows (one-per-week) and columns
+    /* A month views with day cells running in rows (one-per-week) and columns
 ----------------------------------------------------------------------------------------------------------------------*/
 
 setDefaults({
@@ -9299,14 +9299,14 @@ var MonthView = fcViews.month = BasicView.extend({
 
 MonthView.duration = { months: 1 };
 
-    /* A week view with simple day cells running horizontally
+    /* A week views with simple day cells running horizontally
 ----------------------------------------------------------------------------------------------------------------------*/
 
 fcViews.basicWeek = {
 	type: 'basic',
 	duration: { weeks: 1 }
 };
-    /* A view with a single simple day cell
+    /* A views with a single simple day cell
 ----------------------------------------------------------------------------------------------------------------------*/
 
 fcViews.basicDay = {
@@ -9332,7 +9332,7 @@ var AGENDA_ALL_DAY_EVENT_LIMIT = 5;
 
 fcViews.agenda = View.extend({ // AgendaView
 
-	timeGrid: null, // the main time-grid subcomponent of this view
+	timeGrid: null, // the main time-grid subcomponent of this views
 	dayGrid: null, // the "all-day" subcomponent. if all-day is turned off, this will be null
 
 	axisWidth: null, // the width of the time axis running down the side
@@ -9348,7 +9348,7 @@ fcViews.agenda = View.extend({ // AgendaView
 		this.timeGrid = new TimeGrid(this);
 
 		if (this.opt('allDaySlot')) { // should we display the "all-day" area?
-			this.dayGrid = new DayGrid(this); // the all-day subcomponent of this view
+			this.dayGrid = new DayGrid(this); // the all-day subcomponent of this views
 
 			// the coordinate grid will be a combination of both subcomponents' grids
 			this.coordMap = new ComboCoordMap([
@@ -9377,10 +9377,10 @@ fcViews.agenda = View.extend({ // AgendaView
 	},
 
 
-	// Renders the view into `this.el`, which has already been assigned
+	// Renders the views into `this.el`, which has already been assigned
 	render: function() {
 
-		this.el.addClass('fc-agenda-view').html(this.renderHtml());
+		this.el.addClass('fc-agenda-views').html(this.renderHtml());
 
 		// the element that wraps the time-grid that will probably scroll
 		this.scrollerEl = this.el.find('.fc-time-grid-container');
@@ -9415,7 +9415,7 @@ fcViews.agenda = View.extend({ // AgendaView
 	},
 
 
-	// Builds the HTML skeleton for the view.
+	// Builds the HTML skeleton for the views.
 	// The day-grid and time-grid components will render inside containers defined by this HTML.
 	renderHtml: function() {
 		return '' +
@@ -9525,14 +9525,14 @@ fcViews.agenda = View.extend({ // AgendaView
 	},
 
 
-	// Refreshes the horizontal dimensions of the view
+	// Refreshes the horizontal dimensions of the views
 	updateWidth: function() {
 		// make all axis cells line up, and record the width so newly created axis cells will have it
 		this.axisWidth = matchCellWidths(this.el.find('.fc-axis'));
 	},
 
 
-	// Adjusts the vertical dimensions of the view to the specified values
+	// Adjusts the vertical dimensions of the views to the specified values
 	setHeight: function(totalHeight, isAuto) {
 		var eventLimit;
 		var scrollerHeight;
@@ -9611,7 +9611,7 @@ fcViews.agenda = View.extend({ // AgendaView
 	------------------------------------------------------------------------------------------------------------------*/
 
 
-	// Renders events onto the view and populates the View's segment array
+	// Renders events onto the views and populates the View's segment array
 	renderEvents: function(events) {
 		var dayEvents = [];
 		var timedEvents = [];
@@ -9640,7 +9640,7 @@ fcViews.agenda = View.extend({ // AgendaView
 	},
 
 
-	// Retrieves all segment objects that are rendered in the view
+	// Retrieves all segment objects that are rendered in the views
 	getEventSegs: function() {
 		return this.timeGrid.getEventSegs().concat(
 			this.dayGrid ? this.dayGrid.getEventSegs() : []
@@ -9715,14 +9715,14 @@ fcViews.agenda = View.extend({ // AgendaView
 
 });
 
-    /* A week view with an all-day cell area at the top, and a time grid below
+    /* A week views with an all-day cell area at the top, and a time grid below
 ----------------------------------------------------------------------------------------------------------------------*/
 
 fcViews.agendaWeek = {
 	type: 'agenda',
 	duration: { weeks: 1 }
 };
-    /* A day view with an all-day cell area at the top, and a time grid below
+    /* A day views with an all-day cell area at the top, and a time grid below
 ----------------------------------------------------------------------------------------------------------------------*/
 
 fcViews.agendaDay = {

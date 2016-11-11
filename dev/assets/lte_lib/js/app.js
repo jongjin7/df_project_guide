@@ -159,7 +159,7 @@ $(function () {
   //Activate the layout maker
   $.AdminLTE.layout.activate();
 
-  //Enable sidebar tree view controls
+  //Enable sidebar tree views controls
   $.AdminLTE.tree('.sidebar');
 
   //Enable control sidebar
@@ -380,7 +380,7 @@ function _init() {
   /* Tree()
    * ======
    * Converts the sidebar into a multilevel
-   * tree view menu.
+   * tree views menu.
    *
    * @type Function
    * @Usage: $.AdminLTE.tree('.sidebar')

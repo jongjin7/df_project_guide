@@ -41,7 +41,7 @@ var factory = function( $, DataTable ) {
  * Returns:  object:FixedHeader - must be called with 'new'
  * Inputs:   mixed:mTable - target table
  *  @param {object} dt DataTables instance or HTML table node. With DataTables
- *    1.10 this can also be a jQuery collection (with just a single table in its
+ *    1.10 this can also be a jQuery collections (with just a single table in its
  *    result set), a jQuery selector, DataTables API instance or settings
  *    object.
  *  @param {object} [oInit] initialisation settings, with the following

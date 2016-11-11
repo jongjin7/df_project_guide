@@ -4206,7 +4206,7 @@ $.extend(Datepicker.prototype, {
 		this._disabledInputs[this._disabledInputs.length] = target;
 	},
 
-	/* Is the first field in a jQuery collection disabled as a datepicker?
+	/* Is the first field in a jQuery collections disabled as a datepicker?
 	 * @param  target	element - the target input field or division or span
 	 * @return boolean - true if disabled, false if enabled
 	 */
@@ -4637,7 +4637,7 @@ $.extend(Datepicker.prototype, {
 		return [position.left, position.top];
 	},
 
-	/* Hide the date picker from view.
+	/* Hide the date picker from views.
 	 * @param  input  element - the input field attached to the date picker
 	 */
 	_hideDatepicker: function(input) {
@@ -5795,7 +5795,7 @@ function datepicker_extendRemove(target, props) {
    @return  jQuery object */
 $.fn.datepicker = function(options){
 
-	/* Verify an empty collection wasn't passed - Fixes #6976 */
+	/* Verify an empty collections wasn't passed - Fixes #6976 */
 	if ( !this.length ) {
 		return this;
 	}
@@ -8466,8 +8466,8 @@ var dialog = $.widget( "ui.dialog", {
 		this._on( this.uiDialogTitlebar, {
 			mousedown: function( event ) {
 				// Don't prevent click on close button (#8838)
-				// Focusing a dialog that is partially scrolled out of view
-				// causes the browser to scroll it into view, preventing the click event
+				// Focusing a dialog that is partially scrolled out of views
+				// causes the browser to scroll it into views, preventing the click event
 				if ( !$( event.target ).closest( ".ui-dialog-titlebar-close" ) ) {
 					// Dialog isn't getting focus when dragging (#8063)
 					this.uiDialog.focus();
@@ -15653,7 +15653,7 @@ var tabs = $.widget( "ui.tabs", {
 			.addClass( "ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" )
 			.attr( "role", "tablist" )
 
-			// Prevent users from focusing disabled tabs via click
+			// Prevent manage from focusing disabled tabs via click
 			.delegate( "> li", "mousedown" + this.eventNamespace, function( event ) {
 				if ( $( this ).is( ".ui-state-disabled" ) ) {
 					event.preventDefault();
@@ -15970,7 +15970,7 @@ var tabs = $.widget( "ui.tabs", {
 	},
 
 	_getIndex: function( index ) {
-		// meta-function to give users option to provide a href string instead of a numerical index.
+		// meta-function to give manage option to provide a href string instead of a numerical index.
 		if ( typeof index === "string" ) {
 			index = this.anchors.index( this.anchors.filter( "[href$='" + index + "']" ) );
 		}

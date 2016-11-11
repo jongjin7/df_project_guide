@@ -29,7 +29,7 @@ function checkDevice() {
         // not android
     } else {
         var minSiteWidth = 480;
-        /*Anything Less than or Equal to this will be in 'phone' view*/
+        /*Anything Less than or Equal to this will be in 'phone' views*/
         var maxSiteWidth = 1024;
         /*Anything between this and min width will be tablet, anything greater will be Desktop*/
         var w = ($(window).width() < window.screen.width ) ? $(window).width() : window.screen.width;

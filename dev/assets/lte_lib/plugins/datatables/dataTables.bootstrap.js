@@ -175,7 +175,7 @@ if ( DataTable.TableTools ) {
 		}
 	} );
 
-	// Have the collection use a bootstrap compatible drop down
+	// Have the collections use a bootstrap compatible drop down
 	$.extend( true, DataTable.TableTools.DEFAULTS.oTags, {
 		"collection": {
 			"container": "ul",

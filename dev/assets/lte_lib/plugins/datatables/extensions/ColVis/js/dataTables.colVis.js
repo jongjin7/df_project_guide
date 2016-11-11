@@ -33,7 +33,7 @@ var factory = function( $, DataTable ) {
  * @class ColVis
  * @constructor
  * @param {object} DataTables settings object. With DataTables 1.10 this can
- *   also be and API instance, table node, jQuery collection or jQuery selector.
+ *   also be and API instance, table node, jQuery collections or jQuery selector.
  * @param {object} ColVis configuration options
  */
 var ColVis = function( oDTSettings, oInit )
@@ -82,7 +82,7 @@ var ColVis = function( oDTSettings, oInit )
 		"oInit": oInit,
 
 		/**
-		 * Flag to say if the collection is hidden
+		 * Flag to say if the collections is hidden
 		 *  @property hidden
 		 *  @type     boolean
 		 *  @default  true
@@ -680,7 +680,7 @@ ColVis.prototype = {
 	 * Create the element used to contain list the columns (it is shown and
 	 * hidden as needed)
 	 *  @method  _fnDomCollection
-	 *  @returns {Node} div container for the collection
+	 *  @returns {Node} div container for the collections
 	 *  @private
 	 */
 	"_fnDomCollection": function ()
@@ -703,7 +703,7 @@ ColVis.prototype = {
 	/**
 	 * An element to be placed on top of the activate button to catch events
 	 *  @method  _fnDomCatcher
-	 *  @returns {Node} div container for the collection
+	 *  @returns {Node} div container for the collections
 	 *  @private
 	 */
 	"_fnDomCatcher": function ()
@@ -808,7 +808,7 @@ ColVis.prototype = {
 			}
 		});
 
-		/* Visual corrections to try and keep the collection visible */
+		/* Visual corrections to try and keep the collections visible */
 		if ( !this.s.bCssPosition )
 		{
 			iLeft = ( this.s.sAlign=="left" ) ?
@@ -880,7 +880,7 @@ ColVis.prototype = {
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /**
- * Rebuild the collection for a given table, or all tables if no parameter given
+ * Rebuild the collections for a given table, or all tables if no parameter given
  *  @method  ColVis.fnRebuild
  *  @static
  *  @param   object oTable DataTable instance to consider - optional
@@ -964,7 +964,7 @@ ColVis.defaults = {
 	sShowAll: 'Show All',
 
 	/**
-	 * Position of the collection menu when shown - align "left" or "right"
+	 * Position of the collections menu when shown - align "left" or "right"
 	 *  @property sAlign
 	 *  @type     string
 	 *  @default  left

@@ -6,6 +6,7 @@
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
+  #=include common_content_inbody.html
 
   <header class="main-header">
     #=include header.html
@@ -986,6 +987,8 @@
 
 
 <script>
+    App.start();
+
     $('.dropdown-toggle').click(function(e){
       var _this = $(this).closest('.btn-group');
       var _top = $(this).offset().top +10;

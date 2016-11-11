@@ -44,7 +44,7 @@ var factory = function( $, DataTable ) {
  *  @constructor
  *  @global
  *  @param {object} dt DataTables instance. With DataTables 1.10 this can also
- *    be a jQuery collection, a jQuery selector, DataTables API instance or
+ *    be a jQuery collections, a jQuery selector, DataTables API instance or
  *    settings object.
  *  @param {object} [init={}] Configuration object for FixedColumns. Options are
  *    defined by {@link FixedColumns.defaults}

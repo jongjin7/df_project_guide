@@ -6,6 +6,7 @@
 </head>
 <body class="hold-transition layout-boxed skin-blue sidebar-mini">
 <div class="wrapper">
+  #=include common_content_inbody.html
 
   <header class="main-header">
     #=include header.html
@@ -232,31 +233,5 @@
 
 #=include common_js.html
 
-<!-- dropdown menu !!! -->
-<ul class="list-drmenu dropdown-menu" role="menu">
-  <li><a href="#">상세</a></li>
-  <li><a href="#">수정</a></li>
-  <li><a href="#">삭제</a></li>
-  <li class="divider"></li>
-  <li><a href="#">Separated link</a></li>
-</ul>
-
-<script>
-  $(function(){
-    $('.dropdown-toggle').click(function(e){
-      var _this = $(this).closest('.btn-group');
-      var _top = $(this).offset().top +10;
-      var _left = $(this).offset().left + 30;
-      console.log(_this, _top, _left, 'target000')
-      //setTimeout(function(){
-        $('.list-drmenu.dropdown-menu').css({
-          top: _top,
-          left: _left
-        }).toggle();
-     // }, 100)
-
-    })
-  });
-</script>
 </body>
 </html>

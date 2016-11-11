@@ -13,16 +13,26 @@ body {
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Noto Sans Korean','Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Noto Sans KR', sans-serif, Helvetica, Arial;
   font-weight: 400;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: auto;
 }
 
 textarea{resize: none;}
 p{padding: 0; margin:0;}
 .title{font-weight:bold;}
 
+/* 브라우저 알림, skip */
+/* skip Navigation */
+#skip-navi	 {position:absolute;top:0;left:0;width:100%;z-index:600; }
+#skip-navi a			{position:absolute;display:block;top:-9999px; }
+#skip-navi a span		{display:block;padding:10px 0; background:#fafafa; border: 2px solid #666; box-sizing: border-box; color:#000; font-size: 16px; text-align:center; }
+#skip-navi a:hover, #skip-navi a:active, #skip-navi a:focus {display:inline-block;top:0;width:100%; }
+
+/* browserUpgrage */
+.browser-upgrade{position: fixed; left:0; top:0; bottom:0; width:100%; z-index:10000; background: rgba(0,0,0,0.5); border-bottom:2px solid #999; margin:0; text-align: center; font-size: 14px;}
+.browser-upgrade p{padding:20px 0; background: @black / 0.07; font-size: 24px; color:@black; letter-spacing: -0.5px;}
+.browser-upgrade p strong{color:@blue}
 /* Layout */
 .wrapper {
   .clearfix();
@@ -149,7 +159,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Noto Sans Korean' ;
+  font-family: 'Noto Sans KR' ;
 }
 
 /* General Links */

@@ -690,7 +690,7 @@ TableTools = function( oDT, oOpts )
 		 */
 		"collection": {
 			/**
-			 * The div wrapper containing the buttons in the collection (i.e. the menu)
+			 * The div wrapper containing the buttons in the collections (i.e. the menu)
 			 *  @property collection
 			 *  @type	 node
 			 *  @default  null
@@ -1404,12 +1404,12 @@ TableTools.prototype = {
 
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
-	 * Button collection functions
+	 * Button collections functions
 	 */
 
 	/**
-	 * Create a collection button, when activated will present a drop down list of other buttons
-	 *  @param   {Node} nButton Button to use for the collection activation
+	 * Create a collections button, when activated will present a drop down list of other buttons
+	 *  @param   {Node} nButton Button to use for the collections activation
 	 *  @param   {Object} oConfig Button configuration object
 	 *  @returns void
 	 *  @private
@@ -1427,8 +1427,8 @@ TableTools.prototype = {
 
 
 	/**
-	 * Show a button collection
-	 *  @param   {Node} nButton Button to use for the collection
+	 * Show a button collections
+	 *  @param   {Node} nButton Button to use for the collections
 	 *  @param   {Object} oConfig Button configuration object
 	 *  @returns void
 	 *  @private
@@ -1462,7 +1462,7 @@ TableTools.prototype = {
 		document.body.appendChild( nBackground );
 		document.body.appendChild( nHidden );
 
-		/* Visual corrections to try and keep the collection visible */
+		/* Visual corrections to try and keep the collections visible */
 		var iDivWidth = $(nHidden).outerWidth();
 		var iDivHeight = $(nHidden).outerHeight();
 
@@ -1490,7 +1490,7 @@ TableTools.prototype = {
 		/* Resize the buttons to the Flash contents fit */
 		this.fnResizeButtons();
 
-		/* Event handler to remove the collection display */
+		/* Event handler to remove the collections display */
 		$(nBackground).click( function () {
 			that._fnCollectionHide.call( that, null, null );
 		} );
@@ -1498,8 +1498,8 @@ TableTools.prototype = {
 
 
 	/**
-	 * Hide a button collection
-	 *  @param   {Node} nButton Button to use for the collection
+	 * Hide a button collections
+	 *  @param   {Node} nButton Button to use for the collections
 	 *  @param   {Object} oConfig Button configuration object
 	 *  @returns void
 	 *  @private
@@ -2425,7 +2425,7 @@ TableTools.prototype = {
 		{
 			this._fnPrintScrollStart( oSetDT );
 
-			// If the table redraws while in print view, the DataTables scrolling
+			// If the table redraws while in print views, the DataTables scrolling
 			// setup would hide the header, so we need to readd it on draw
 			$(this.s.dt.nTable).bind('draw.DTTT_Print', function () {
 				that._fnPrintScrollStart( oSetDT );
@@ -2546,7 +2546,7 @@ TableTools.prototype = {
 			nTheadSize, nTfootSize;
 
 		/* Copy the header in the thead in the body table, this way we show one single table when
-		 * in print view. Note that this section of code is more or less verbatim from DT 1.7.0
+		 * in print views. Note that this section of code is more or less verbatim from DT 1.7.0
 		 */
 		nTheadSize = oSetDT.nTable.getElementsByTagName('thead');
 		if ( nTheadSize.length > 0 )
@@ -2903,11 +2903,11 @@ TableTools.BUTTONS = {
 	} ),
 
 	"print": $.extend( {}, TableTools.buttonBase, {
-		"sInfo": "<h6>Print view</h6><p>Please use your browser's print function to "+
+		"sInfo": "<h6>Print views</h6><p>Please use your browser's print function to "+
 		  "print this table. Press escape when finished.</p>",
 		"sMessage": null,
 		"bShowAll": true,
-		"sToolTip": "View print view",
+		"sToolTip": "View print views",
 		"sButtonClass": "DTTT_button_print",
 		"sButtonText": "Print",
 		"fnClick": function ( nButton, oConfig ) {

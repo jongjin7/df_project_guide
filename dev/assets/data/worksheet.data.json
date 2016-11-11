@@ -1,0 +1,236 @@
+{
+  "status"      : 200,
+  "version"     : "1.0.0",
+  "description" : "Worksheet 환결 파일과 DATA 관리",
+  "pageList": {
+    "frontList" : [
+      {
+        "seq"  : 1,
+        "menuName" : "frontMenuName1",
+        "pages": [
+          {
+            "pageName": "프론트페이지1-1",
+            "url": "front_page_11.html",
+            "chkStatus": 0,
+            "comment": "의견이 작성되다."
+          },
+          {
+            "pageName": "프론트페이지1-2",
+            "url": "front_page_12.html",
+            "chkStatus": 1,
+            "comment": "순수하게 텍스트만 입력, 의견이 작성되다."
+          },
+          {
+            "pageName": "프론트페이지1-3",
+            "url": "front_page_13.html",
+            "chkStatus": 2,
+            "comment": null
+          }
+        ]
+      },
+      {
+        "seq"  : 2,
+        "menuName" : "frontMenuName2",
+        "pages": [
+          {
+            "pageName": "프론트페이지2-1",
+            "url": "front_page_21.html",
+            "chkStatus": 0,
+            "comment": "의견이 작성되다."
+          },
+          {
+            "pageName": "프론트페이지2-2",
+            "url": "front_page_22.html",
+            "chkStatus": 1,
+            "comment": "순수하게 텍스트만 입력, 의견이 작성되다."
+          },
+          {
+            "pageName": "프론트페이지2-3",
+            "url": "front_page_23.html",
+            "chkStatus": 2,
+            "comment": null
+          }
+        ]
+      },
+      {
+        "seq"  : 3,
+        "menuName" : "frontMenuName3",
+        "pages": [
+          {
+            "pageName": "프론트페이지3-1",
+            "url": "front_page_31.html",
+            "chkStatus": 0,
+            "comment": "의견이 작성되다."
+          },
+          {
+            "pageName": "프론트페이지3-2",
+            "url": "front_page_32.html",
+            "chkStatus": 1,
+            "comment": "순수하게 텍스트만 입력, 의견이 작성되다."
+          },
+          {
+            "pageName": "프론트페이지3-3",
+            "url": "front_page_33.html",
+            "chkStatus": 2,
+            "comment": null
+          }
+        ]
+      }
+    ],
+    "adminList" : [
+      {
+        "seq"  : 1,
+        "menuName" : "adminMenuName1",
+        "pages": [
+          {
+            "pageName": "어드민페이지1-1",
+            "url": "admin_page_11.html",
+            "chkStatus": 0,
+            "comment": "의견이 작성되다."
+          },
+          {
+            "pageName": "어드민페이지1-2",
+            "url": "admin_page_12.html",
+            "chkStatus": 1,
+            "comment": "순수하게 텍스트만 입력, 의견이 작성되다."
+          },
+          {
+            "pageName": "어드민페이지1-3",
+            "url": "admin_page_13.html",
+            "chkStatus": 2,
+            "comment": null
+          }
+        ]
+      },
+      {
+        "seq"  : 2,
+        "menuName" : "adminMenuName2",
+        "pages": [
+          {
+            "pageName": "어드민페이지2-1",
+            "url": "admin_page_21.html",
+            "chkStatus": 0,
+            "comment": "의견이 작성되다."
+          },
+          {
+            "pageName": "어드민페이지2-2",
+            "url": "admin_page_22.html",
+            "chkStatus": 1,
+            "comment": "순수하게 텍스트만 입력, 의견이 작성되다."
+          },
+          {
+            "pageName": "어드민페이지2-3",
+            "url": "admin_page_23.html",
+            "chkStatus": 2,
+            "comment": null
+          }
+        ]
+      },
+      {
+        "seq"  : 3,
+        "menuName" : "adminMenuName3",
+        "pages": [
+          {
+            "pageName": "어드민페이지3-1",
+            "url": "admin_page_31.html",
+            "chkStatus": 0,
+            "comment": "의견이 작성되다."
+          },
+          {
+            "pageName": "어드민페이지3-2",
+            "url": "admin_page_32.html",
+            "chkStatus": 1,
+            "comment": "순수하게 텍스트만 입력, 의견이 작성되다."
+          },
+          {
+            "pageName": "어드민페이지3-3",
+            "url": "admin_page_33.html",
+            "chkStatus": 2,
+            "comment": null
+          }
+        ]
+      }
+    ],
+    "etc"   : [
+      {
+        "seq"  : 1,
+        "menuName" : "etcMenuName1",
+        "pages": [
+          {
+            "pageName": "기타페이지1-1",
+            "url": "etc_page_11.html",
+            "chkStatus": 0,
+            "comment": "의견이 작성되다."
+          },
+          {
+            "pageName": "기타페이지1-2",
+            "url": "etc_page_12.html",
+            "chkStatus": 1,
+            "comment": "순수하게 텍스트만 입력, 의견이 작성되다."
+          },
+          {
+            "pageName": "기타페이지1-3",
+            "url": "etc_page_13.html",
+            "chkStatus": 2,
+            "comment": null
+          }
+        ]
+      },
+      {
+        "seq"  : 2,
+        "menuName" : "etcMenuName2",
+        "pages": [
+          {
+            "pageName": "기타페이지2-1",
+            "url": "etc_page_21.html",
+            "chkStatus": 0,
+            "comment": "의견이 작성되다."
+          },
+          {
+            "pageName": "기타페이지2-2",
+            "url": "etc_page_22.html",
+            "chkStatus": 1,
+            "comment": "순수하게 텍스트만 입력, 의견이 작성되다."
+          },
+          {
+            "pageName": "기타페이지2-3",
+            "url": "etc_page_23.html",
+            "chkStatus": 2,
+            "comment": null
+          }
+        ]
+      },
+      {
+        "seq"  : 3,
+        "menuName" : "etcMenuName3",
+        "pages": [
+          {
+            "pageName": "기타페이지3-1",
+            "url": "etc_page_31.html",
+            "chkStatus": 0,
+            "comment": "의견이 작성되다."
+          },
+          {
+            "pageName": "기타페이지3-2",
+            "url": "etc_page_32.html",
+            "chkStatus": 1,
+            "comment": "순수하게 텍스트만 입력, 의견이 작성되다."
+          },
+          {
+            "pageName": "기타페이지3-3",
+            "url": "etc_page_33.html",
+            "chkStatus": 2,
+            "comment": null
+          }
+        ]
+      }
+    ]
+  },
+
+  "screenMode":{
+    "mode_1" : "PC모드",
+    "mode_2" : "모바일모드"
+  },
+
+  "etcCategory" : null
+}

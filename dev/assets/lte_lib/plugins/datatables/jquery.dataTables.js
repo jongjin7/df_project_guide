@@ -355,7 +355,7 @@
 	/**
 	 * Convert from camel case parameters to Hungarian, based on a Hungarian map
 	 * created by _fnHungarianMap.
-	 *  @param {object} src The model object which holds all parameters that can be
+	 *  @param {object} src The models object which holds all parameters that can be
 	 *    mapped.
 	 *  @param {object} user The object to convert from camel case to Hungarian.
 	 *  @param {boolean} force When set to `true`, properties which already have a
@@ -5128,7 +5128,7 @@
 	 *      out
 	 *  @param {boolean} breakRefs If true, then arrays will be sliced to take an
 	 *      independent copy with the exception of the `data` or `aaData` parameters
-	 *      if they are present. This is so you can pass in a collection to
+	 *      if they are present. This is so you can pass in a collections to
 	 *      DataTables and have that used as your data source without breaking the
 	 *      references
 	 *  @returns {object} out Reference, just for convenience - out === the return.
@@ -5175,7 +5175,7 @@
 	{
 		$(n)
 			.bind( 'click.DT', oData, function (e) {
-					n.blur(); // Remove focus outline for mouse users
+					n.blur(); // Remove focus outline for mouse manage
 					fn(e);
 				} )
 			.bind( 'keypress.DT', oData, function (e){
@@ -8668,7 +8668,7 @@
 	 *
 	 * @param {node|jQuery|string} node Identifier for the element(s) to attach the
 	 *   listener to. This can take the form of a single DOM node, a jQuery
-	 *   collection of nodes or a jQuery selector which will identify the node(s).
+	 *   collections of nodes or a jQuery selector which will identify the node(s).
 	 * @param {integer} column the column that a click on this node will sort on
 	 * @param {function} [callback] callback function when sort is run
 	 * @returns {DataTables.Api} this
@@ -8924,7 +8924,7 @@
 	 * either the 1.9 style Hungarian notation, or the 1.10+ style camelCase
 	 * parameters.
 	 *
-	 *  @param {object} src The model object which holds all parameters that can be
+	 *  @param {object} src The models object which holds all parameters that can be
 	 *    mapped.
 	 *  @param {object} user The object to convert from camel case to Hungarian.
 	 *  @param {boolean} force When set to `true`, properties which already have a
@@ -11734,7 +11734,7 @@
 	
 	
 	/*
-	 * Developer note - See note in model.defaults.js about the use of Hungarian
+	 * Developer note - See note in models.defaults.js about the use of Hungarian
 	 * notation and camel case.
 	 */
 	
@@ -13496,7 +13496,7 @@
 	/**
 	 * DataTables extensions
 	 * 
-	 * This namespace acts as a collection area for plug-ins that can be used to
+	 * This namespace acts as a collections area for plug-ins that can be used to
 	 * extend DataTables capabilities. Indeed many of the build in methods
 	 * use this method to provide their own capabilities (sorting methods for
 	 * example).
@@ -14310,7 +14310,7 @@
 	
 	
 	
-	// Built in type detection. See model.ext.aTypes for information about
+	// Built in type detection. See models.ext.aTypes for information about
 	// what is required from this methods.
 	$.extend( DataTable.ext.type.detect, [
 		// Plain numbers - first since V8 detects some plain numbers as dates
@@ -14365,7 +14365,7 @@
 	
 	
 	
-	// Filter formatting functions. See model.ext.ofnSearch for information about
+	// Filter formatting functions. See models.ext.ofnSearch for information about
 	// what is required from these methods.
 	// 
 	// Note that additional search methods are added for the html numbers and

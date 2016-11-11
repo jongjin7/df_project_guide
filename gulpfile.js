@@ -32,7 +32,7 @@ var plumberOption = {
 }
 
 // ---------------------------------------------------------------------
-// | Build Task                                                         |
+// | Build Task : default                                              |
 // ---------------------------------------------------------------------
 
 gulp.task('clean', function (done) {
@@ -82,6 +82,7 @@ gulp.task('copy:lte-lib-css', function () {
         ])
         .pipe(lessToCss())
         .pipe(gulp.dest(dirs.buildSrc +'/assets/lte_lib/css'))
+        .pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('copy:images', function () {
@@ -98,10 +99,23 @@ gulp.task('copy:css', function () {
         .pipe(gulp.dest(dirs.buildSrc +'/assets/css'))
 });
 
+gulp.task('copy:js', function () {
+    return gulp.src([
+            dirs.devSrc + '/assets/js/**/*'
+        ])
+        .pipe(gulp.dest(dirs.buildSrc +'/assets/js'))
+});
+
 gulp.task('copy:etc', function () {
     return gulp.src([
             dirs.devSrc + '/index.html'])
         .pipe(gulp.dest(dirs.buildSrc));
+});
+
+gulp.task('copy:data-json', function () {
+    return gulp.src([
+            dirs.devSrc + '/assets/data/*.json'])
+        .pipe(gulp.dest(dirs.buildSrc +'/assets/data'));
 });
 
 //watch tasks
@@ -113,33 +127,34 @@ gulp.task('copy:watch-css', function () {
         .pipe(gulp.dest(dirs.buildSrc +'/assets/css'))
         .pipe(browserSync.reload({stream:true}));
 });
-gulp.task('copy:watch-lte-css', function () {
-    return gulp.src([
-            dirs.devSrc + '/assets/lte_lib/css/**/*.css',
-            '!'+ dirs.devSrc + '/assets/lte_lib/css/less'
-        ])
-        .pipe(gulp.dest(dirs.buildSrc +'/assets/lte_lib/css'))
-        .pipe(browserSync.reload({stream:true}));
-});
 
-gulp.task('copy:js', function () {
-    return gulp.src([dirs.devSrc + '/assets/js/**/*'])
-        .pipe(gulp.dest(dirs.buildSrc +'/assets/js')) //dist 폴더에 저장
+gulp.task('copy:watch-app', function () {
+    return gulp.src([dirs.devSrc + '/assets/js/interactive/App.js'])
+        .pipe(gulp.dest(dirs.buildSrc +'/assets/js/interactive/'))
         .pipe(browserSync.reload({stream:true})); //browserSync 로 브라우저에 반영
 });
 
-gulp.task('copy:watch-js-1', function () {
+gulp.task('copy:watch-collections', function () {
     return gulp.src([
-            dirs.devSrc + '/assets/js/interactive/first/**/*'])
-        .pipe(gulp.dest(dirs.buildSrc +'/assets/js/interactive/first'))
+            dirs.devSrc + '/assets/js/interactive/collections/**/*.js'])
+        .pipe(gulp.dest(dirs.buildSrc +'/assets/js/interactive/collections'))
         .pipe(browserSync.reload({stream:true}));
 });
-gulp.task('copy:watch-js-2', function () {
+
+gulp.task('copy:watch-models', function () {
     return gulp.src([
-            dirs.devSrc + '/assets/js/interactive/second/**/*'])
-        .pipe(gulp.dest(dirs.buildSrc +'/assets/js/interactive/second'))
-        .pipe(brwserSync.reload({stream:true}));
+            dirs.devSrc + '/assets/js/interactive/models/**/*.js'])
+        .pipe(gulp.dest(dirs.buildSrc +'/assets/js/interactive/models'))
+        .pipe(browserSync.reload({stream:true}));
 });
+
+gulp.task('copy:watch-views', function () {
+    return gulp.src([
+            dirs.devSrc + '/assets/js/interactive/views/**/*.js'])
+        .pipe(gulp.dest(dirs.buildSrc +'/assets/js/interactive/views'))
+        .pipe(browserSync.reload({stream:true}));
+});
+
 
 
 // ---------------------------------------------------------------------
@@ -215,7 +230,7 @@ gulp.task('compress:js-vendor', function () {
 
 // project별로 task를 생성한다.
 // only copy build
-gulp.task('copy-project', [
+gulp.task('copy-project',[
     'include',
     'copy:etc',
     'copy:css',
@@ -223,7 +238,8 @@ gulp.task('copy-project', [
     'copy:images',
     'copy:bootstrap',
     'copy:lte-lib',
-    'copy:lte-lib-css'
+    'copy:lte-lib-css',
+    'copy:data-json'
 ]);
 
 // optimise build
@@ -243,10 +259,12 @@ gulp.task('optimise-project', [
 
 //파일 변경 감지 테스트
 gulp.task('watch', function () {
-    gulp.watch(dirs.devSrc + '/assets/js/interactive/first/**/*.js', ['copy:watch-js-1']);
-    gulp.watch(dirs.devSrc + '/assets/js/interactive/second/**/*.js', ['copy:watch-js-2']);
+    gulp.watch(dirs.devSrc + '/assets/js/interactive/App.js', ['copy:watch-app']);
+    gulp.watch(dirs.devSrc + '/assets/js/interactive/collections/**/*.js', ['copy:watch-collections']);
+    gulp.watch(dirs.devSrc + '/assets/js/interactive/models/**/*.js', ['copy:watch-models']);
+    gulp.watch(dirs.devSrc + '/assets/js/interactive/views/**/*.js', ['copy:watch-views']);
     gulp.watch(dirs.devSrc + '/assets/css/**/*.css', ['copy:watch-css']);
-    gulp.watch(dirs.devSrc + '/assets/lte_lib/css/**/*.css', ['copy:watch-lte-css']);
+    gulp.watch(dirs.devSrc + '/assets/lte_lib/less/**/*.less', ['copy:lte-lib-css']);
     gulp.watch(dirs.devSrc + '/html/**/*.html', ['include']);
 });
 

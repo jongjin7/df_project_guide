@@ -1,0 +1,8 @@
+{
+  "dataName" : "site-settings",
+  "author": "Lim jongjin",
+  "main": "index.html",
+  "version": "1.0.0",
+  "description": "가이드라인 APP을 위한 환결 설정 파일",
+  "configs":""
+}

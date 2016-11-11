@@ -4443,7 +4443,7 @@ wysihtml5.browser = (function() {
     },
 
     /**
-     * All browsers except Safari and Chrome automatically scroll the range/caret position into view
+     * All browsers except Safari and Chrome automatically scroll the range/caret position into views
      */
     autoScrollsToCaret: function() {
       return !isWebKit;
@@ -9263,7 +9263,7 @@ wysihtml5.quirks.ensureProperClearing = (function() {
     },
 
     /**
-     * Scroll the current caret position into the view
+     * Scroll the current caret position into the views
      * FIXME: This is a bit hacky, there might be a smarter way of doing this
      *
      * @example
@@ -12533,11 +12533,11 @@ wysihtml5.views.View = Base.extend(
       ];
 
   /**
-   * With "setActive" IE offers a smart way of focusing elements without scrolling them into view:
+   * With "setActive" IE offers a smart way of focusing elements without scrolling them into views:
    * http://msdn.microsoft.com/en-us/library/ms536738(v=vs.85).aspx
    *
    * Other browsers need a more hacky way: (pssst don't tell my mama)
-   * In order to prevent the element being scrolled into view when focusing it, we simply
+   * In order to prevent the element being scrolled into views when focusing it, we simply
    * move it out of the scrollable area, focus it, and reset it's position
    */
   var focusWithoutScrolling = function(element) {
@@ -13062,7 +13062,7 @@ wysihtml5.views.View = Base.extend(
     },
 
     /**
-     * Invoke syncing based on view state
+     * Invoke syncing based on views state
      * @param {Boolean} shouldParseHtml Whether the html should be sanitized before inserting it into the composer/textarea
      */
     sync: function(shouldParseHtml) {
